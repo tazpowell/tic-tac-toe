@@ -1,6 +1,22 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$teal: #35c9ab;
+$light-teal: #c4f1e8;
+
+body {
+  padding-left: 50px;
+}
 
 .hide {
   display: none;
+}
+
+.box {
+  background-color: $light-teal;
+  border: 1px solid $teal;
+  // padding: 100%;
+  height: 20vw;
+  width: 20vw;
 }
