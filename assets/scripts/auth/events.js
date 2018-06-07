@@ -1,5 +1,6 @@
 'use strict'
 const getFormFields = require('../../../lib/get-form-fields.js')
+const store = require('../store')
 
 let currentGame = []
 
@@ -9,6 +10,7 @@ const onCreate = function (event) {
 
   currentGame = ['', '', '', '', '', '', '', '', '']
   console.log('currentGame is ', currentGame)
+  store.cells = currentGame
   return currentGame
 }
 
@@ -18,14 +20,16 @@ const onMakeAMove = function (event) {
 
   const data = getFormFields(event.target)
   console.log(data)
+  store.move = data
+  console.log(store)
 
-  // if (player === 'x') {
-  //   currentGame[box] = 'x'
-  // } else if (player === 'o') {
-  //   currentGame[box] = 'o'
-  // } else { console.log('invalid move') }
-  // console.log('currentGame is now ', currentGame)
-  // return currentGame
+  if (data.player === 'x') {
+    currentGame[data.box] = 'x'
+  } else if (data.player === 'o') {
+    currentGame[data.box] = 'o'
+  } else { console.log('invalid move') }
+  console.log('currentGame is now ', currentGame)
+  return currentGame
 }
 
 // const onMakeAMove = function (box, player) {
