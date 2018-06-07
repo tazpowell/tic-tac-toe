@@ -1,12 +1,15 @@
 'use strict'
 const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store')
+const authUi = require('./ui.js')
 
+// define blank game array
 let currentGame = []
 
+// on click, prep game array with strings
 const onCreate = function (event) {
   event.preventDefault()
-  console.log('the start button was clicked')
+  console.log('new game board was created')
 
   currentGame = ['', '', '', '', '', '', '', '', '']
   console.log('currentGame is ', currentGame)
@@ -14,22 +17,37 @@ const onCreate = function (event) {
   return currentGame
 }
 
+// make a move
 const onMakeAMove = function (event) {
   event.preventDefault()
   console.log('the form was submitted')
 
   const data = getFormFields(event.target)
-  console.log(data)
-  store.move = data
-  console.log(store)
+  console.log('data is ', data)
 
-  if (data.player === 'x') {
+  // check if number is 0-8
+  if (data.box <= 8 && data.box >= 0) {
+  } else {
+    console.log('number is invalid, please use 0-8')
+    return
+  }
+
+  // check if number has been used
+  if (store.cells[data.box] !== '') {
+    console.log('number is already used, pick again')
+    return
+  }
+
+  // push x or o to array
+  if ($('#player_o').hasClass('hide')) {
     currentGame[data.box] = 'x'
-  } else if (data.player === 'o') {
+  } else {
     currentGame[data.box] = 'o'
-  } else { console.log('invalid move') }
+  }
   console.log('currentGame is now ', currentGame)
-  return currentGame
+  authUi.makeMoveSuccess(currentGame)
+  store.cells = currentGame
+  console.log('store is ', store)
 }
 
 // const onMakeAMove = function (box, player) {

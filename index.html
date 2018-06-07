@@ -15,11 +15,19 @@
       <h1>Tic Tac Toe</h1>
       <button id="start-btn" type="button">Start a new game</button>
 
+      <h2>Current player is:
+        <span id="player_x">Player X</span>
+        <span id="player_o" class="hide" >Player O</span>
+      </h2>
+
       <form id="game-board-form">
-        <input name="box" type="number" placeholder="Number" />
-        <input name="player" type="text" placeholder="x or o" />
+        <input name="box" type="number" placeholder="Number, 0-8" />
+        <!-- <input name="player" type="text" placeholder="x or o" /> -->
         <button type="submit">Submit</button>
       </form>
+
+      <h2>Game Board</h2>
+      <div id="gameBoard"></div>
 
     </body>
 </html>
