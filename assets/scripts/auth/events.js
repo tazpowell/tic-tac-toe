@@ -6,9 +6,9 @@ const authUi = require('./ui.js')
 // define blank game array
 let currentGame = []
 
-// on click, prep game array with strings
+// prep game array with strings
 const onCreate = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
   console.log('new game board was created')
 
   currentGame = ['', '', '', '', '', '', '', '', '']
@@ -17,10 +17,32 @@ const onCreate = function (event) {
   return currentGame
 }
 
+// when box is clicked
+const onSelectBox = function (event) {
+  const num = event.target.getAttribute('data-id')
+  console.log('num is ', num)
+
+  // check if number has been used
+  if (store.cells[num] !== '') {
+    console.log('number is already used, pick again')
+    return
+  }
+
+  // push x or o to array
+  if ($('#player_o').hasClass('hide')) {
+    currentGame[num] = 'x'
+  } else {
+    currentGame[num] = 'o'
+  }
+  console.log('currentGame is now ', currentGame)
+  authUi.makeMoveSuccess(currentGame)
+  store.cells = currentGame
+}
+
 // make a move
 const onMakeAMove = function (event) {
   event.preventDefault()
-  console.log('the form was submitted')
+  // console.log('the form was submitted')
 
   const data = getFormFields(event.target)
   console.log('data is ', data)
@@ -47,7 +69,17 @@ const onMakeAMove = function (event) {
   console.log('currentGame is now ', currentGame)
   authUi.makeMoveSuccess(currentGame)
   store.cells = currentGame
-  console.log('store is ', store)
+  // console.log('store is ', store)
+
+  console.log(store.cells[0], store.cells[1], store.cells[2])
+
+  // win conditions
+  if (store.cells[0] === store.cells[1] === store.cells[2]) {
+    console.log('We have a winner!')
+  }
+  // else if (store.cells[3] === store.cells[4] === store.cells[5]) {
+  //   console.log('Player ', store.cells[3], 'wins!')
+  // }
 }
 
 // const onMakeAMove = function (box, player) {
@@ -67,5 +99,6 @@ const onMakeAMove = function (event) {
 // whatever comes after the equals is what's passed
 module.exports = {
   onCreate,
-  onMakeAMove
+  onMakeAMove,
+  onSelectBox
 }
