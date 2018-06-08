@@ -3,6 +3,7 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./auth/events')
+const gameEvents = require('./game/events')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -10,9 +11,12 @@ const authEvents = require('./auth/events')
 $(() => {
   // $(`#someIdOfTheThingIWant`).on('action', callback)
   // create new board on load
-  authEvents.onCreate()
+  gameEvents.onCreate()
   // clear board on click
   $('#start-btn').on('click', authEvents.onRestart)
+
+  // create a new game on the server
+  $('#new-game-btn').on('click', gameEvents.onCreateGame)
 
   // submit forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -21,5 +25,5 @@ $(() => {
   $('#sign-out-btn').on('click', authEvents.onSignOut)
 
   // add x or o on click
-  $('#gameBoard').on('click', authEvents.onSelectBox)
+  $('#gameBoard').on('click', gameEvents.onSelectBox)
 })

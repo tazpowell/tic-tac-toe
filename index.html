@@ -16,34 +16,13 @@
       <!-- title and status  -->
       <div id="main-content" class="col-md-3" >
         <h1>Tic Tac Toe</h1>
-        <button id="start-btn" type="button" class="btn-default">Start a new game</button>
+        <button id="start-btn" type="button" class="btn-default">Refresh board</button>
+        <button id="new-game-btn" type="button" class="btn-default">Create a new game</button>
 
         <h2>Current player is:
           <span id="player_x">Player X</span>
           <span id="player_o" class="hide" >Player O</span>
         </h2>
-
-        <!-- SIGN UP -->
-        <hr>
-        <div class="form-area">
-          <h4>Sign Up</h4>
-          <form id="sign-up-form">
-            <div class="form-group">
-              <label for="email-signup">Email:</label>
-              <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="pwd-signup">Password:</label>
-              <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
-            </div>
-            <div class="form-group">
-              <label for="pwd-conf-signup">Confirm password:</label>
-              <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
-            </div>
-            <span id="sign-up-msg"></span>
-            <button type="submit" class="btn-default">Sign Up</button>
-          </form>
-        </div><!-- end of form-area -->
 
         <!-- SIGN IN -->
         <hr>
@@ -87,6 +66,28 @@
           <h4>Sign Out</h4>
           <span id="sign-out-msg"></span>
           <button id="sign-out-btn" type="button" class="btn-default">Sign Out</button>
+        </div><!-- end of form-area -->
+
+        <!-- SIGN UP -->
+        <hr>
+        <div class="form-area">
+          <h4>Sign Up</h4>
+          <form id="sign-up-form">
+            <div class="form-group">
+              <label for="email-signup">Email:</label>
+              <input id="email-signup" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="pwd-signup">Password:</label>
+              <input id="pwd-signup" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+              <label for="pwd-conf-signup">Confirm password:</label>
+              <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
+            </div>
+            <span id="sign-up-msg"></span>
+            <button type="submit" class="btn-default">Sign Up</button>
+          </form>
         </div><!-- end of form-area -->
 
       </div><!-- end of main-content -->
