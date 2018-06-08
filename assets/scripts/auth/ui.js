@@ -35,8 +35,7 @@ const signInError = function (error) {
 }
 
 // Change PW success
-const changePWSuccess = function (changePWresponse) {
-  console.log('changePWresponse is ', changePWresponse)
+const changePWSuccess = function () {
   $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', 'green')
   $('#change-pw-form input[type=password]').val('')
 }
@@ -44,6 +43,19 @@ const changePWSuccess = function (changePWresponse) {
 const changePWError = function (error) {
   console.log('changePWError is ', error)
   $('#change-pw-msg').html('Password change failed').css('color', 'red')
+}
+
+// SIGN OUT success
+const signOutSuccess = function () {
+  console.log('sign out success ')
+  $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', 'green')
+  delete store.user
+}
+
+// SIGN OUT error
+const signOutError = function (error) {
+  console.log('signOutError is ', error)
+  $('#v').html('Sign out failed').css('color', 'red')
 }
 
 // GAME PLAY
@@ -87,6 +99,8 @@ module.exports = {
   signInError,
   changePWSuccess,
   changePWError,
+  signOutSuccess,
+  signOutError,
   makeMoveSuccess,
   weHaveAWinner,
   clearBoard

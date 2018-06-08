@@ -2,7 +2,7 @@
 const store = require('../store')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
-const authGame = require('./game.js')
+// const authGame = require('./game.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 // on Sign Up
@@ -39,6 +39,16 @@ const onChangePW = function (event) {
   authApi.changePW(data)
     .then(authUi.changePWSuccess)
     .catch(authUi.changePWError)
+}
+
+// SIGN OUT
+const onSignOut = function (event) {
+  event.preventDefault()
+  console.log('sign out button was clicked')
+  // api
+  authApi.signOut()
+    .then(authUi.signOutSuccess)
+    .catch(authUi.signOutError)
 }
 
 // GAME PLAY
@@ -139,5 +149,6 @@ module.exports = {
   onRestart,
   onSignUp,
   onSignIn,
-  onChangePW
+  onChangePW,
+  onSignOut
 }

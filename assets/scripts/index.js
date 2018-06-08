@@ -14,10 +14,11 @@ $(() => {
   // clear board on click
   $('#start-btn').on('click', authEvents.onRestart)
 
-  // submit forms
+  // submit forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-pw-form').on('submit', authEvents.onChangePW)
+  $('#sign-out-btn').on('click', authEvents.onSignOut)
 
   // add x or o on click
   $('#gameBoard').on('click', authEvents.onSelectBox)
