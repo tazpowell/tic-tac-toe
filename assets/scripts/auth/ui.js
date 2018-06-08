@@ -1,23 +1,21 @@
 'use strict'
 
-const makeMoveSuccess = function (gameboard) {
+const makeMoveSuccess = function (box, game, num) {
   // $('#gameBoard').html(gameboard)
   $('#player_x').toggleClass('hide')
   $('#player_o').toggleClass('hide')
-  // console.log('gameboard is ', gameboard)
 
-  $('#box0').html(gameboard[0])
-  $('#box1').html(gameboard[1])
-  $('#box2').html(gameboard[2])
-  $('#box3').html(gameboard[3])
-  $('#box4').html(gameboard[4])
-  $('#box5').html(gameboard[5])
-  $('#box6').html(gameboard[6])
-  $('#box7').html(gameboard[7])
-  $('#box8').html(gameboard[8])
+  console.log('box is ', box)
+  console.log('game is ', game)
+  console.log('num is ', num)
+  $('#box' + num).html(game[num])
+}
 
+const weHaveAWinner = function (value) {
+  $('#gameStatus').html('Player ' + value + ' wins!')
 }
 
 module.exports = {
-  makeMoveSuccess
+  makeMoveSuccess,
+  weHaveAWinner
 }
