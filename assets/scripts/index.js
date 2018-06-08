@@ -17,6 +17,8 @@ $(() => {
   // submit forms
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#change-pw-form').on('submit', authEvents.onChangePW)
+
   // add x or o on click
   $('#gameBoard').on('click', authEvents.onSelectBox)
 })

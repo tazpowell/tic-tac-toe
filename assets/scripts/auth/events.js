@@ -29,6 +29,18 @@ const onSignIn = function (event) {
     .catch(authUi.signInError)
 }
 
+// on Change PW
+const onChangePW = function (event) {
+  event.preventDefault()
+  console.log('the pw change form was submitted')
+  const data = getFormFields(event.target)
+  console.log('onChangePW data is', data)
+  // api
+  authApi.changePW(data)
+    .then(authUi.changePWSuccess)
+    .catch(authUi.changePWError)
+}
+
 // GAME PLAY
 // define blank game array
 let currentGame = []
@@ -126,5 +138,6 @@ module.exports = {
   onSelectBox,
   onRestart,
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePW
 }
