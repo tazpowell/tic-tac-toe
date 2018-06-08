@@ -1,5 +1,5 @@
 'use strict'
-const getFormFields = require('../../../lib/get-form-fields.js')
+// const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store')
 const authUi = require('./ui.js')
 
@@ -14,11 +14,28 @@ const onCreate = function (event) {
   currentGame = ['', '', '', '', '', '', '', '', '']
   console.log('currentGame is ', currentGame)
   store.cells = currentGame
+  store.over = false
   return currentGame
+}
+
+const onRestart = function (event) {
+  console.log('new game board was created')
+  currentGame = ['', '', '', '', '', '', '', '', '']
+  store.over = false
+  store.cells = currentGame
+  authUi.clearBoard()
+  console.log('currentGame is ', currentGame)
+  console.log('store is ', store)
 }
 
 // when box is clicked
 const onSelectBox = function (event) {
+  // stop if game is over
+  if (store.over === true) {
+    return
+  }
+
+  // store the box number that is clicked
   const num = event.target.getAttribute('data-id')
   console.log('num is ', num)
 
@@ -37,54 +54,49 @@ const onSelectBox = function (event) {
   console.log('currentGame is now ', currentGame)
   authUi.makeMoveSuccess(event.target, currentGame, num)
   store.cells = currentGame
-  console.log(store.cells[0], store.cells[1], store.cells[2])
+  console.log('store is ', store)
+  // console.log(store.cells[0], store.cells[1], store.cells[2])
 
   // win conditions
-  if (store.cells[0] === store.cells[1] && store.cells[0] === store.cells[2]) {
-    console.log('Player', store.cells[0], 'wins!')
-    authUi.weHaveAWinner(store.cells[0])
-  }
-  // else if (store.cells[3] === store.cells[4] === store.cells[5]) {
-  //   console.log('Player ', store.cells[3], 'wins!')
-  // }
-}
+  const c = store.cells
+  console.log('c[0] is ', c[0])
 
-// // make a move
-// const onMakeAMove = function (event) {
-//   event.preventDefault()
-//   // console.log('the form was submitted')
-//
-//   const data = getFormFields(event.target)
-//   console.log('data is ', data)
-//
-//   // check if number is 0-8
-//   if (data.box <= 8 && data.box >= 0) {
-//   } else {
-//     console.log('number is invalid, please use 0-8')
-//     return
-//   }
-//
-//   // check if number has been used
-//   if (store.cells[data.box] !== '') {
-//     console.log('number is already used, pick again')
-//     return
-//   }
-//
-//   // push x or o to array
-//   if ($('#player_o').hasClass('hide')) {
-//     currentGame[data.box] = 'x'
-//   } else {
-//     currentGame[data.box] = 'o'
-//   }
-//   console.log('currentGame is now ', currentGame)
-//   authUi.makeMoveSuccess(currentGame)
-//   store.cells = currentGame
-//   // console.log('store is ', store)
-//
-// }
+  // win in rows
+  if (c[0] !== '' && c[0] === c[1] && c[0] === c[2]) {
+    console.log('Player', c[0], 'wins!')
+    authUi.weHaveAWinner(c[0])
+  } else if (c[3] !== '' && c[3] === c[4] && c[3] === c[5]) {
+    console.log('Player ', c[3], 'wins!')
+    authUi.weHaveAWinner(c[3])
+  } else if (c[6] !== '' && c[6] === c[7] && c[6] === c[8]) {
+    console.log('Player ', c[6], 'wins!')
+    authUi.weHaveAWinner(c[6])
+  }
+  // win in columns
+  if (c[0] !== '' && c[0] === c[3] && c[0] === c[6]) {
+    console.log('Player', c[0], 'wins!')
+    authUi.weHaveAWinner(c[0])
+  } else if (c[1] !== '' && c[1] === c[4] && c[1] === c[7]) {
+    console.log('Player ', c[1], 'wins!')
+    authUi.weHaveAWinner(c[3])
+  } else if (c[2] !== '' && c[2] === c[5] && c[2] === c[8]) {
+    console.log('Player ', c[2], 'wins!')
+    authUi.weHaveAWinner(c[2])
+  }
+
+  // win in diagonals
+  if (c[0] !== '' && c[0] === c[4] && c[0] === c[8]) {
+    console.log('Player', c[0], 'wins!')
+    authUi.weHaveAWinner(c[0])
+  } else if (c[2] !== '' && c[2] === c[4] && c[2] === c[6]) {
+    console.log('Player ', c[2], 'wins!')
+    authUi.weHaveAWinner(c[2])
+  }
+} // end of onSelectBox
 
 // whatever comes after the equals is what's passed
 module.exports = {
   onCreate,
-  onSelectBox
+  onSelectBox,
+  onRestart
 }

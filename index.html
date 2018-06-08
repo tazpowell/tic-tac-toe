@@ -20,14 +20,17 @@
         <span id="player_o" class="hide" >Player O</span>
       </h2>
 
-      <form id="game-board-form">
-        <input name="box" type="number" placeholder="Number, 0-8" />
+      <!-- <form id="game-board-form">
+        <input name="box" type="number" placeholder="Number, 0-8" /> -->
         <!-- <input name="player" type="text" placeholder="x or o" /> -->
-        <button type="submit">Submit</button>
-      </form>
+        <!-- <button type="submit">Submit</button>
+      </form> -->
 
-      <h2>Game Board</h2>
-      <div id="gameStatus"></div>
+      <!-- <h2>Game Board</h2> -->
+      <div id="gameStatus">
+        <span id="game-win-msg" class="msg"></span>
+        <span id="game-over-msg" class="hide msg">Game Over</span>
+      </div>
       <div id="gameBoard">
         <div class="row">
           <div id="box0" data-id="0" class="col-xs-4 box">0</div>

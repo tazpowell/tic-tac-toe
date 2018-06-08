@@ -4,6 +4,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $teal: #35c9ab;
 $light-teal: #c4f1e8;
+$light-gray: #d2dedc;
+$orange: #f88a27;
 
 body {
   padding-left: 50px;
@@ -11,6 +13,10 @@ body {
 
 .hide {
   display: none;
+}
+
+.game-end {
+  background-color: $light-gray;
 }
 
 .box {
@@ -21,6 +27,10 @@ body {
   // padding: 100%;
   height: 20vw;
   width: 20vw;
+}
+
+.msg {
+  color: $orange;
 }
 
 #gameStatus {

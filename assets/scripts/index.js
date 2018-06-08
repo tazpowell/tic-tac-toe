@@ -9,8 +9,8 @@ const authEvents = require('./auth/events')
 
 $(() => {
   // $(`#someIdOfTheThingIWant`).on('action', callback)
-  // $('#start-btn').on('click', authEvents.onCreate)
+  $('#start-btn').on('click', authEvents.onRestart)
   authEvents.onCreate()
-  $('#game-board-form').on('submit', authEvents.onMakeAMove)
+  // $('#game-board-form').on('submit', authEvents.onMakeAMove)
   $('#gameBoard').on('click', authEvents.onSelectBox)
 })
