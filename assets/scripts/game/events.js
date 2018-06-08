@@ -1,41 +1,46 @@
 'use strict'
 const store = require('../store')
 const gameUi = require('./ui.js')
+const gameApi = require('./api.js')
 
-// GAME on server
+// CREATE GAME on server
 const onCreateGame = function (event) {
   console.log('create a new game was clicked')
+  // api
+  gameApi.createGame()
+    .then(gameUi.createSuccess)
+    .catch(gameUi.createError)
 }
 
 // GAME PLAY
 // define blank game array
-let currentGame = []
 
-// prep game array with strings
-const onCreate = function (event) {
-  console.log('new game board was created')
+// // prep game array with strings
+// const onCreate = function (event) {
+//   console.log('new game board was created')
+//
+//   currentGame = ['', '', '', '', '', '', '', '', '']
+//   console.log('currentGame is ', currentGame)
+//   store.cells = currentGame
+//   store.over = false
+//   return currentGame
+// }
 
-  currentGame = ['', '', '', '', '', '', '', '', '']
-  console.log('currentGame is ', currentGame)
-  store.cells = currentGame
-  store.over = false
-  return currentGame
-}
-
-const onRestart = function (event) {
-  console.log('new game board was created')
-  currentGame = ['', '', '', '', '', '', '', '', '']
-  store.over = false
-  store.cells = currentGame
-  gameUi.clearBoard()
-  console.log('currentGame is ', currentGame)
-  console.log('store is ', store)
-}
+// const onRestart = function (event) {
+//   console.log('new game board was created')
+//   currentGame = ['', '', '', '', '', '', '', '', '']
+//   store.over = false
+//   store.cells = currentGame
+//   gameUi.clearBoard()
+//   console.log('currentGame is ', currentGame)
+//   console.log('store is ', store)
+// }
 
 // when box is clicked
 const onSelectBox = function (event) {
+  // const currentGame = store.game.cells
   // stop if game is over
-  if (store.over === true) {
+  if (store.game.over === true) {
     return
   }
 
@@ -44,25 +49,25 @@ const onSelectBox = function (event) {
   console.log('num is ', num)
 
   // check if number has been used
-  if (store.cells[num] !== '') {
+  if (store.game.cells[num] !== '') {
     console.log('number is already used, pick again')
     return
   }
 
   // push x or o to array
   if ($('#player_o').hasClass('hide')) {
-    currentGame[num] = 'x'
+    store.game.cells[num] = 'x'
   } else {
-    currentGame[num] = 'o'
+    store.game.cells[num] = 'o'
   }
-  console.log('currentGame is now ', currentGame)
-  gameUi.makeMoveSuccess(event.target, currentGame, num)
-  store.cells = currentGame
+  console.log('currentGame is now ', store.game.cells)
+  gameUi.makeMoveSuccess(event.target, store.game.cells, num)
+  // store.game.cells = currentGame
   console.log('store is ', store)
   // console.log(store.cells[0], store.cells[1], store.cells[2])
 
   // win conditions
-  const c = store.cells
+  const c = store.game.cells
   console.log('c[0] is ', c[0])
 
   // win in rows
@@ -100,7 +105,7 @@ const onSelectBox = function (event) {
 
 module.exports = {
   onCreateGame,
-  onCreate,
-  onSelectBox,
-  onRestart
+  // onCreate,
+  onSelectBox
+  // onRestart
 }

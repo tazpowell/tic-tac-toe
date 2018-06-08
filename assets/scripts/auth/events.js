@@ -1,5 +1,5 @@
 'use strict'
-const store = require('../store')
+// const store = require('../store')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
 // const authGame = require('./game.js')

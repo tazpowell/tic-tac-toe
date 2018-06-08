@@ -47,23 +47,9 @@ const signOut = function () {
   })
 }
 
-// CREATE GAME
-const createGame = function () {
-  console.log('token is', store.user.token)
-  return $.ajax({
-    method: 'POST',
-    url: config.apiUrl + '/games',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: ''
-  })
-}
-
 module.exports = {
   signUp,
   signIn,
   changePW,
-  signOut,
-  createGame
+  signOut
 }

@@ -11,9 +11,9 @@ const gameEvents = require('./game/events')
 $(() => {
   // $(`#someIdOfTheThingIWant`).on('action', callback)
   // create new board on load
-  gameEvents.onCreate()
+  // gameEvents.onCreate()
   // clear board on click
-  $('#start-btn').on('click', authEvents.onRestart)
+  // $('#start-btn').on('click', gameEvents.onRestart)
 
   // create a new game on the server
   $('#new-game-btn').on('click', gameEvents.onCreateGame)

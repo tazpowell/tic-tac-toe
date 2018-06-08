@@ -1,6 +1,22 @@
 'use strict'
 const store = require('../store')
 
+// GAME server
+// CREATE success
+const createSuccess = function (createResponse) {
+  console.log('createResponse is ', createResponse)
+  store.game = createResponse.game
+  console.log('new game successfully created')
+  console.log('store.game is ', store.game)
+  console.log('store.game.cells is ', store.game.cells)
+}
+
+// CREATE error
+const createError = function (error) {
+  console.log('createError is ', error)
+  console.log('Failed to create new game')
+}
+
 // GAME PLAY
 // make a move
 const makeMoveSuccess = function (box, game, num) {
@@ -18,7 +34,7 @@ const weHaveAWinner = function (value) {
   console.log('value is ', value)
   $('#game-win-msg').html('Player ' + value + ' wins!')
   // $('.box').css('background-color', '#565656')
-  store.over = true
+  store.game.over = true
   console.log('store is ', store)
   $('#game-over-msg').toggleClass('hide')
 }
@@ -38,5 +54,7 @@ const clearBoard = function () {
 module.exports = {
   makeMoveSuccess,
   weHaveAWinner,
-  clearBoard
+  clearBoard,
+  createSuccess,
+  createError
 }
