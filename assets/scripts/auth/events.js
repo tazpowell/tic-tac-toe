@@ -1,14 +1,14 @@
 'use strict'
-// const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
+const authGame = require('./game.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 // on Sign Up
-const onSignUp = function () {
+const onSignUp = function (event) {
   event.preventDefault()
-  console.log('the form was submitted')
+  console.log('the sign up form was submitted')
   const data = getFormFields(event.target)
   console.log('data is', data)
   // api
@@ -17,6 +17,19 @@ const onSignUp = function () {
     .catch(authUi.signUpError)
 }
 
+// on Sign In
+const onSignIn = function (event) {
+  event.preventDefault()
+  console.log('the sign in form was submitted')
+  const data = getFormFields(event.target)
+  console.log('data is', data)
+  // api
+  authApi.signIn(data)
+    .then(authUi.signInSuccess)
+    .catch(authUi.signInError)
+}
+
+// GAME PLAY
 // define blank game array
 let currentGame = []
 
@@ -112,5 +125,6 @@ module.exports = {
   onCreate,
   onSelectBox,
   onRestart,
-  onSignUp
+  onSignUp,
+  onSignIn
 }

@@ -9,8 +9,14 @@ const authEvents = require('./auth/events')
 
 $(() => {
   // $(`#someIdOfTheThingIWant`).on('action', callback)
-  $('#start-btn').on('click', authEvents.onRestart)
+  // create new board on load
   authEvents.onCreate()
+  // clear board on click
+  $('#start-btn').on('click', authEvents.onRestart)
+
+  // submit forms
   $('#sign-up-form').on('submit', authEvents.onSignUp)
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  // add x or o on click
   $('#gameBoard').on('click', authEvents.onSelectBox)
 })
