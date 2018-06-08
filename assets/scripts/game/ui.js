@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const gameApi = require('./api.js')
 
 // GAME server
 // CREATE success
@@ -17,17 +18,46 @@ const createError = function (error) {
   console.log('Failed to create new game')
 }
 
+// UPDATE success
+const updateSuccess = function (updateResponse) {
+  console.log('updateResponse is ', updateResponse)
+  store.game = updateResponse.game
+  console.log('game successfully updated')
+  console.log('store.game is ', store.game)
+}
+
+// UPDATE error
+const updateError = function (error) {
+  console.log('updateError is ', error)
+  console.log('Failed to update game')
+}
+
 // GAME PLAY
 // make a move
+// game = store.game
 const makeMoveSuccess = function (box, game, num) {
-  // $('#gameBoard').html(gameboard)
+  $('#box' + num).html(game.cells[num])
   $('#player_x').toggleClass('hide')
   $('#player_o').toggleClass('hide')
-
+  // store into store.update
+  const update = {
+    game: {
+      cell: {
+        index: num,
+        value: game.cells[num]
+      },
+      over: game.over
+    }
+  }
+  store.update = update
+  console.log('update is ', update)
   console.log('box is ', box)
   console.log('game is ', game)
   console.log('num is ', num)
-  $('#box' + num).html(game[num])
+
+  gameApi.updateGame()
+    .then(updateSuccess)
+    .catch(updateError)
 }
 
 const weHaveAWinner = function (value) {
@@ -35,6 +65,10 @@ const weHaveAWinner = function (value) {
   $('#game-win-msg').html('Player ' + value + ' wins!')
   // $('.box').css('background-color', '#565656')
   store.game.over = true
+  store.update.game.over = true
+  gameApi.updateGame()
+    .then(updateSuccess)
+    .catch(updateError)
   console.log('store is ', store)
   $('#game-over-msg').toggleClass('hide')
 }
@@ -56,5 +90,7 @@ module.exports = {
   weHaveAWinner,
   clearBoard,
   createSuccess,
-  createError
+  createError,
+  updateSuccess,
+  updateError
 }

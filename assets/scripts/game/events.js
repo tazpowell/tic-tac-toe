@@ -13,29 +13,6 @@ const onCreateGame = function (event) {
 }
 
 // GAME PLAY
-// define blank game array
-
-// // prep game array with strings
-// const onCreate = function (event) {
-//   console.log('new game board was created')
-//
-//   currentGame = ['', '', '', '', '', '', '', '', '']
-//   console.log('currentGame is ', currentGame)
-//   store.cells = currentGame
-//   store.over = false
-//   return currentGame
-// }
-
-// const onRestart = function (event) {
-//   console.log('new game board was created')
-//   currentGame = ['', '', '', '', '', '', '', '', '']
-//   store.over = false
-//   store.cells = currentGame
-//   gameUi.clearBoard()
-//   console.log('currentGame is ', currentGame)
-//   console.log('store is ', store)
-// }
-
 // when box is clicked
 const onSelectBox = function (event) {
   // const currentGame = store.game.cells
@@ -61,7 +38,7 @@ const onSelectBox = function (event) {
     store.game.cells[num] = 'o'
   }
   console.log('currentGame is now ', store.game.cells)
-  gameUi.makeMoveSuccess(event.target, store.game.cells, num)
+  gameUi.makeMoveSuccess(event.target, store.game, num)
   // store.game.cells = currentGame
   console.log('store is ', store)
   // console.log(store.cells[0], store.cells[1], store.cells[2])
