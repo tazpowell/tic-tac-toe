@@ -11,6 +11,6 @@ $(() => {
   // $(`#someIdOfTheThingIWant`).on('action', callback)
   $('#start-btn').on('click', authEvents.onRestart)
   authEvents.onCreate()
-  // $('#game-board-form').on('submit', authEvents.onMakeAMove)
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#gameBoard').on('click', authEvents.onSelectBox)
 })

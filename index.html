@@ -11,44 +11,69 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
-      <h1>Tic Tac Toe</h1>
-      <button id="start-btn" type="button">Start a new game</button>
+      <!-- title and status  -->
+      <div id="main-content" class="col-md-3" >
+        <h1>Tic Tac Toe</h1>
+        <button id="start-btn" type="button" class="btn-default">Start a new game</button>
 
-      <h2>Current player is:
-        <span id="player_x">Player X</span>
-        <span id="player_o" class="hide" >Player O</span>
-      </h2>
+        <h2>Current player is:
+          <span id="player_x">Player X</span>
+          <span id="player_o" class="hide" >Player O</span>
+        </h2>
 
-      <!-- <form id="game-board-form">
-        <input name="box" type="number" placeholder="Number, 0-8" /> -->
-        <!-- <input name="player" type="text" placeholder="x or o" /> -->
-        <!-- <button type="submit">Submit</button>
-      </form> -->
+        <!-- signup/signin -->
+        <hr>
+        <div id="form-area">
+          <h4>Sign Up</h4>
+          <form id="sign-up-form">
+            <div class="form-group">
+              <label for="email-input">Email:</label>
+              <input id="email-input" class="form-control" name="credentials[email]" type="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="pwd-input">Password:</label>
+              <input id="pwd-input" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+              <label for="pwd-conf-input">Confirm password:</label>
+              <input id="pwd-conf-input" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
+            </div>
+            <button type="submit" class="btn-default">Sign Up</button>
+          </form>
+        </div><!-- end of form-area -->
 
-      <!-- <h2>Game Board</h2> -->
-      <div id="gameStatus">
-        <span id="game-win-msg" class="msg"></span>
-        <span id="game-over-msg" class="hide msg">Game Over</span>
-      </div>
-      <div id="gameBoard">
-        <div class="row">
-          <div id="box0" data-id="0" class="col-xs-4 box">0</div>
-          <div id="box1" data-id="1" class="col-xs-4 box">1</div>
-          <div id="box2" data-id="2" class="col-xs-4 box">2</div>
-        </div>
-        <div class="row">
-          <div id="box3" data-id="3" class="col-xs-4 box">3</div>
-          <div id="box4" data-id="4" class="col-xs-4 box">4</div>
-          <div id="box5" data-id="5" class="col-xs-4 box">5</div>
-        </div>
-        <div class="row">
-          <div id="box6" data-id="6" class="col-xs-4 box">6</div>
-          <div id="box7" data-id="7" class="col-xs-4 box">7</div>
-          <div id="box8" data-id="8" class="col-xs-4 box">8</div>
-        </div>
+      </div><!-- end of main-content -->
 
-      </div>
+
+      <!-- gameboard area -->
+      <div id="game-area" class="col-md-8">
+
+        <div id="gameStatus">
+          <span id="game-win-msg" class="msg"></span>
+          <span id="game-over-msg" class="hide msg">Game Over</span>
+        </div><!-- end of gameStatus-->
+
+        <div id="gameBoard">
+          <div class="row">
+            <div id="box0" data-id="0" class="col-xs-4 box">0</div>
+            <div id="box1" data-id="1" class="col-xs-4 box">1</div>
+            <div id="box2" data-id="2" class="col-xs-4 box">2</div>
+          </div><!-- end of row -->
+          <div class="row">
+            <div id="box3" data-id="3" class="col-xs-4 box">3</div>
+            <div id="box4" data-id="4" class="col-xs-4 box">4</div>
+            <div id="box5" data-id="5" class="col-xs-4 box">5</div>
+          </div><!-- end of row -->
+          <div class="row">
+            <div id="box6" data-id="6" class="col-xs-4 box">6</div>
+            <div id="box7" data-id="7" class="col-xs-4 box">7</div>
+            <div id="box8" data-id="8" class="col-xs-4 box">8</div>
+          </div><!-- end of row -->
+        </div><!-- end of gameBoard -->
+
+      </div><!-- end of game-area-->
 
     </body>
 </html>

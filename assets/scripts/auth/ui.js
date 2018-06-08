@@ -1,6 +1,17 @@
 'use strict'
 const store = require('../store')
 
+// SIGN UP success
+const signUpSuccess = function (signUpResponse) {
+  console.log('signUpResponse is ', signUpResponse)
+}
+
+// SIGN UP error
+const signUpError = function (error) {
+  console.log('signUpError is ', error)
+}
+
+// make a move
 const makeMoveSuccess = function (box, game, num) {
   // $('#gameBoard').html(gameboard)
   $('#player_x').toggleClass('hide')
@@ -38,6 +49,8 @@ const clearBoard = function () {
 }
 
 module.exports = {
+  signUpSuccess,
+  signUpError,
   makeMoveSuccess,
   weHaveAWinner,
   clearBoard

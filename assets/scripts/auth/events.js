@@ -2,13 +2,26 @@
 // const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store')
 const authUi = require('./ui.js')
+const authApi = require('./api.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
+
+// on Sign Up
+const onSignUp = function () {
+  event.preventDefault()
+  console.log('the form was submitted')
+  const data = getFormFields(event.target)
+  console.log('data is', data)
+  // api
+  authApi.signUp(data)
+    .then(authUi.signUpSuccess)
+    .catch(authUi.signUpError)
+}
 
 // define blank game array
 let currentGame = []
 
 // prep game array with strings
 const onCreate = function (event) {
-  // event.preventDefault()
   console.log('new game board was created')
 
   currentGame = ['', '', '', '', '', '', '', '', '']
@@ -98,5 +111,6 @@ const onSelectBox = function (event) {
 module.exports = {
   onCreate,
   onSelectBox,
-  onRestart
+  onRestart,
+  onSignUp
 }
