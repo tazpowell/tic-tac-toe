@@ -2,6 +2,7 @@
 const store = require('../store')
 const gameUi = require('./ui.js')
 const gameApi = require('./api.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 // CREATE GAME on server
 const onCreateGame = function (event) {
@@ -22,12 +23,23 @@ const onShowAllGames = function (event) {
 
 // SHOW ONE GAME from game list
 const onShowClickedGame = function (event) {
-  console.log('show one game was clicked')
+  console.log('show clicked game was clicked')
   console.log('event is ', event)
   console.log('event.target.textContent is ', event.target.textContent)
   // gameApi.showOneGame(event.target.textContent)
   //   .then(gameUi.showOneSuccess)
   //   .catch(gameUi.showOneError)
+}
+
+// SHOW ONE GAME from server
+const onShowOneGame = function (event) {
+  event.preventDefault()
+  console.log('show one game was clicked')
+  const data = getFormFields(event.target)
+  console.log('data.id is ', data.id)
+  gameApi.showOneGame(data.id)
+    .then(gameUi.showOneSuccess)
+    .catch(gameUi.showOneError)
 }
 
 // GAME PLAY
@@ -109,5 +121,6 @@ module.exports = {
   onCreateGame,
   onShowAllGames,
   onShowClickedGame,
+  onShowOneGame,
   onSelectBox
 }

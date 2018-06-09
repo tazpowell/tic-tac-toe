@@ -17,6 +17,11 @@ const clearBoard = function () {
 }
 
 // POPULATE game board with retrieved game data
+const populateBoard = function (array) {
+  for (let i = 0; i < array.length; i++) {
+    $('#box' + i).html(array[i])
+  }
+}
 
 // CREATE html table from JSON
 const createTable = function (json) {
@@ -161,6 +166,7 @@ module.exports = {
   makeMoveSuccess,
   weHaveAWinner,
   clearBoard,
+  populateBoard,
   createSuccess,
   createError,
   updateSuccess,

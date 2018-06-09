@@ -2,7 +2,6 @@
 // const store = require('../store')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
-// const authGame = require('./game.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 // on Sign Up

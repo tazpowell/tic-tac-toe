@@ -22,6 +22,7 @@ $(() => {
   $('#show-all-games-btn').on('click', gameEvents.onShowAllGames)
 
   // get one game from the server
+  $('#game-by-id-form').on('submit', gameEvents.onShowOneGame)
   $('#game-table-body').on('click', 'td.clickable', gameEvents.onShowClickedGame)
 
   // submit forms/button
