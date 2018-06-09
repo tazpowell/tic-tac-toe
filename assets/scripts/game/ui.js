@@ -17,9 +17,11 @@ const clearBoard = function () {
 }
 
 // POPULATE game board with retrieved game data
-const populateBoard = function (array) {
-  for (let i = 0; i < array.length; i++) {
-    $('#box' + i).html(array[i])
+const populateBoard = function (data) {
+  console.log('data is', data)
+  const info = data.game.cells
+  for (let i = 0; i < info.length; i++) {
+    $('#box' + i).html(info[i])
   }
 }
 
@@ -103,6 +105,10 @@ const showAllError = function (error) {
 const showOneSuccess = function (showOneResponse) {
   console.log('showOneResponse is ', showOneResponse)
   console.log('game data retrieved')
+  $('#game-by-id-form input[type=text]').val('')
+  store.show = showOneResponse
+  console.log('store.show is ', store.show)
+  populateBoard(store.show)
 }
 
 // SHOW ONE error
