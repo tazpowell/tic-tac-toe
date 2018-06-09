@@ -42,11 +42,11 @@ const showAllGames = function () {
 }
 
 // SHOW ONE GAME
-const showOneGame = function () {
+const showOneGame = function (id) {
   console.log('token is', store.user.token)
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },

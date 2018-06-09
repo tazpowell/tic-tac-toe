@@ -16,8 +16,18 @@ const onCreateGame = function (event) {
 const onShowAllGames = function (event) {
   console.log('show all games was clicked')
   gameApi.showAllGames()
-    .then(gameUi.showSuccess)
-    .catch(gameUi.showError)
+    .then(gameUi.showAllSuccess)
+    .catch(gameUi.showAllError)
+}
+
+// SHOW ONE GAME from game list
+const onShowClickedGame = function (event) {
+  console.log('show one game was clicked')
+  console.log('event is ', event)
+  console.log('event.target.textContent is ', event.target.textContent)
+  // gameApi.showOneGame(event.target.textContent)
+  //   .then(gameUi.showOneSuccess)
+  //   .catch(gameUi.showOneError)
 }
 
 // GAME PLAY
@@ -98,5 +108,6 @@ const onSelectBox = function (event) {
 module.exports = {
   onCreateGame,
   onShowAllGames,
+  onShowClickedGame,
   onSelectBox
 }

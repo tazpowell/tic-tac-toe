@@ -16,14 +16,17 @@ const clearBoard = function () {
   console.log('visual game board has been reset')
 }
 
+// POPULATE game board with retrieved game data
+
 // CREATE html table from JSON
 const createTable = function (json) {
   // establish which keys to take data from
   let bodyRows = ''
+
   // loop through array to create rows
   for (let i = 0; i < json.length; i++) {
     bodyRows += '<tr>'
-    bodyRows += '<td>' + json[i].id + '</td>'
+    bodyRows += '<td class="clickable">' + json[i].id + '</td>'
     bodyRows += '<td>' + json[i].cells + '</td>'
     bodyRows += '<td>' + json[i].over + '</td>'
     bodyRows += '<td>' + json[i].player_x.email + '</td>'
@@ -76,18 +79,30 @@ const updateError = function (error) {
   console.log('Failed to update game')
 }
 
-// SHOW success
-const showSuccess = function (showResponse) {
-  console.log('showResponse is ', showResponse)
-  store.list = showResponse.games
+// SHOW ALL success
+const showAllSuccess = function (showAllResponse) {
+  console.log('showAllResponse is ', showAllResponse)
+  store.list = showAllResponse.games
   console.log('game data retrieved')
   console.log('store.list is ', store.list)
-  $('#game-table-body').html(createTable(showResponse.games))
+  $('#game-table-body').html(createTable(showAllResponse.games))
 }
 
-// SHOW error
-const showError = function (error) {
-  console.log('showError is ', error)
+// SHOW ALL error
+const showAllError = function (error) {
+  console.log('showAllError is ', error)
+  console.log('Failed to retrieve game data')
+}
+
+// SHOW ONE success
+const showOneSuccess = function (showOneResponse) {
+  console.log('showOneResponse is ', showOneResponse)
+  console.log('game data retrieved')
+}
+
+// SHOW ONE error
+const showOneError = function (error) {
+  console.log('showOneError is ', error)
   console.log('Failed to retrieve game data')
 }
 
@@ -150,7 +165,9 @@ module.exports = {
   createError,
   updateSuccess,
   updateError,
-  showSuccess,
-  showError,
+  showAllSuccess,
+  showAllError,
+  showOneSuccess,
+  showOneError,
   weHaveADraw
 }

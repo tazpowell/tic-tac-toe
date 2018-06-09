@@ -21,6 +21,9 @@ $(() => {
   // get all games from the server
   $('#show-all-games-btn').on('click', gameEvents.onShowAllGames)
 
+  // get one game from the server
+  $('#game-table-body').on('click', 'td.clickable', gameEvents.onShowClickedGame)
+
   // submit forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
