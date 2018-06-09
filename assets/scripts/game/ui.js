@@ -7,7 +7,7 @@ const gameApi = require('./api.js')
 const clearBoard = function () {
   // $('.box').css('background-color', '$light-teal')
   for (let i = 0; i < 9; i++) {
-    $('#box' + i).html()
+    $('#box' + i).html('')
   }
   $('#game-over-msg').addClass('hide')
   $('#player_o').addClass('hide')
@@ -33,7 +33,8 @@ const createTable = function (json) {
   // loop through array to create rows
   for (let i = 0; i < json.length; i++) {
     bodyRows += '<tr>'
-    bodyRows += '<td class="clickable">' + json[i].id + '</td>'
+    bodyRows += '<td><button type="button" class="btn-default clickable">View</button></td>'
+    bodyRows += '<td class="game-list-id" >' + json[i].id + '</td>'
     bodyRows += '<td>' + json[i].cells + '</td>'
     bodyRows += '<td>' + json[i].over + '</td>'
     bodyRows += '<td>' + json[i].player_x.email + '</td>'
@@ -61,8 +62,6 @@ const createSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
   store.game = createResponse.game
   console.log('new game successfully created')
-  // console.log('store.game is ', store.game)
-  // console.log('store.game.cells is ', store.game.cells)
   clearBoard()
 }
 

@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const gameUi = require('../game/ui.js')
 
 // SIGN UP success
 const signUpSuccess = function (signUpResponse) {
@@ -50,6 +51,8 @@ const signOutSuccess = function () {
   console.log('sign out success ')
   $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', 'green')
   delete store.user
+  gameUi.clearBoard()
+  $('#game-table-body').html('')
 }
 
 // SIGN OUT error

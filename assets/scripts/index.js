@@ -10,10 +10,9 @@ const gameEvents = require('./game/events')
 
 $(() => {
   // $(`#someIdOfTheThingIWant`).on('action', callback)
-  // create new board on load
-  // gameEvents.onCreate()
-  // clear board on click
-  // $('#start-btn').on('click', gameEvents.onRestart)
+
+  // show contents of store.js
+  $('#show-store-btn').on('click', gameEvents.onShowStore)
 
   // create a new game on the server
   $('#new-game-btn').on('click', gameEvents.onCreateGame)
@@ -23,7 +22,7 @@ $(() => {
 
   // get one game from the server
   $('#game-by-id-form').on('submit', gameEvents.onShowOneGame)
-  $('#game-table-body').on('click', 'td.clickable', gameEvents.onShowClickedGame)
+  $('#game-table-body').on('click', 'button.clickable', gameEvents.onShowClickedGame)
 
   // submit forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
