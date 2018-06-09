@@ -50,10 +50,10 @@ const makeMoveSuccess = function (box, game, num) {
     }
   }
   store.update = update
-  console.log('update is ', update)
-  console.log('box is ', box)
-  console.log('game is ', game)
-  console.log('num is ', num)
+  // console.log('update is ', update)
+  // console.log('box is ', box)
+  // console.log('game is ', game)
+  // console.log('num is ', num)
 
   gameApi.updateGame()
     .then(updateSuccess)
@@ -70,6 +70,16 @@ const weHaveAWinner = function (value) {
     .then(updateSuccess)
     .catch(updateError)
   console.log('store is ', store)
+  $('#game-over-msg').toggleClass('hide')
+}
+
+const weHaveADraw = function () {
+  $('#game-win-msg').html('We have a draw!')
+  store.game.over = true
+  store.update.game.over = true
+  gameApi.updateGame()
+    .then(updateSuccess)
+    .catch(updateError)
   $('#game-over-msg').toggleClass('hide')
 }
 
@@ -92,5 +102,6 @@ module.exports = {
   createSuccess,
   createError,
   updateSuccess,
-  updateError
+  updateError,
+  weHaveADraw
 }

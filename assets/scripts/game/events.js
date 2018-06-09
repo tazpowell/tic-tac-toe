@@ -78,6 +78,17 @@ const onSelectBox = function (event) {
     console.log('Player ', c[2], 'wins!')
     gameUi.weHaveAWinner(c[2])
   }
+
+  // draw conditions
+  const arrayFull = function (value) {
+    return value !== ''
+  }
+  if (c.every(arrayFull)) {
+    console.log('The game is a draw')
+    gameUi.weHaveADraw()
+  }
+
+
 } // end of onSelectBox
 
 module.exports = {
