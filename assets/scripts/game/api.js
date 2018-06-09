@@ -28,7 +28,35 @@ const updateGame = function () {
   })
 }
 
+// SHOW ALL GAMES
+const showAllGames = function () {
+  console.log('token is', store.user.token)
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: ''
+  })
+}
+
+// SHOW ONE GAME
+const showOneGame = function () {
+  console.log('token is', store.user.token)
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games/' + store.game.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: ''
+  })
+}
+
 module.exports = {
   createGame,
-  updateGame
+  updateGame,
+  showAllGames,
+  showOneGame
 }

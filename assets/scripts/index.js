@@ -18,6 +18,9 @@ $(() => {
   // create a new game on the server
   $('#new-game-btn').on('click', gameEvents.onCreateGame)
 
+  // get all games from the server
+  $('#show-all-games-btn').on('click', gameEvents.onShowAllGames)
+
   // submit forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)

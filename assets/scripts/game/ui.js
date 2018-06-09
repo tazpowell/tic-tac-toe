@@ -7,13 +7,42 @@ const gameApi = require('./api.js')
 const clearBoard = function () {
   // $('.box').css('background-color', '$light-teal')
   for (let i = 0; i < 9; i++) {
-    $('#box' + i).html(i)
+    $('#box' + i).html()
   }
   $('#game-over-msg').addClass('hide')
   $('#player_o').addClass('hide')
   $('#player_x').removeClass('hide')
   $('#game-win-msg').html('')
   console.log('visual game board has been reset')
+}
+
+// CREATE html table from JSON
+const createTable = function (json) {
+  // establish which keys to take data from
+  let bodyRows = ''
+  // loop through array to create rows
+  for (let i = 0; i < json.length; i++) {
+    bodyRows += '<tr>'
+    bodyRows += '<td>' + json[i].id + '</td>'
+    bodyRows += '<td>' + json[i].cells + '</td>'
+    bodyRows += '<td>' + json[i].over + '</td>'
+    bodyRows += '<td>' + json[i].player_x.email + '</td>'
+    if (json[i].player_o === null) {
+      bodyRows += '<td>' + json[i].player_o + '</td>'
+    } else {
+      bodyRows += '<td>' + json[i].player_o.email + '</td>'
+    }
+    bodyRows += '</tr>'
+  }
+  // json.map(function (row) {
+  //   bodyRows += '<tr>'
+  //   // loop over object properties and create cells
+  //   cols.map(function (x) {
+  //     bodyRows += '<td>' + row[x] + '</td>'
+  //   })
+  //   bodyRows += '</tr>'
+  // })
+  return bodyRows
 }
 
 // GAME server
@@ -45,6 +74,21 @@ const updateSuccess = function (updateResponse) {
 const updateError = function (error) {
   console.log('updateError is ', error)
   console.log('Failed to update game')
+}
+
+// SHOW success
+const showSuccess = function (showResponse) {
+  console.log('showResponse is ', showResponse)
+  store.list = showResponse.games
+  console.log('game data retrieved')
+  console.log('store.list is ', store.list)
+  $('#game-table-body').html(createTable(showResponse.games))
+}
+
+// SHOW error
+const showError = function (error) {
+  console.log('showError is ', error)
+  console.log('Failed to retrieve game data')
 }
 
 // GAME PLAY
@@ -98,8 +142,6 @@ const weHaveADraw = function () {
   $('#game-over-msg').toggleClass('hide')
 }
 
-
-
 module.exports = {
   makeMoveSuccess,
   weHaveAWinner,
@@ -108,5 +150,7 @@ module.exports = {
   createError,
   updateSuccess,
   updateError,
+  showSuccess,
+  showError,
   weHaveADraw
 }

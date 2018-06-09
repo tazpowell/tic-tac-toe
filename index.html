@@ -18,6 +18,7 @@
         <h1>Tic Tac Toe</h1>
         <!-- <button id="start-btn" type="button" class="btn-default">Refresh board</button> -->
         <button id="new-game-btn" type="button" class="btn-default">Create a new game</button>
+        <button id="show-all-games-btn" type="button" class="btn-default">Show all games</button>
 
         <h2>Current player is:
           <span id="player_x">Player X</span>
@@ -103,22 +104,37 @@
 
         <div id="gameBoard">
           <div class="row">
-            <div id="box0" data-id="0" class="col-xs-4 box">0</div>
-            <div id="box1" data-id="1" class="col-xs-4 box">1</div>
-            <div id="box2" data-id="2" class="col-xs-4 box">2</div>
+            <div id="box0" data-id="0" class="col-xs-4 box"></div>
+            <div id="box1" data-id="1" class="col-xs-4 box"></div>
+            <div id="box2" data-id="2" class="col-xs-4 box"></div>
           </div><!-- end of row -->
           <div class="row">
-            <div id="box3" data-id="3" class="col-xs-4 box">3</div>
-            <div id="box4" data-id="4" class="col-xs-4 box">4</div>
-            <div id="box5" data-id="5" class="col-xs-4 box">5</div>
+            <div id="box3" data-id="3" class="col-xs-4 box"></div>
+            <div id="box4" data-id="4" class="col-xs-4 box"></div>
+            <div id="box5" data-id="5" class="col-xs-4 box"></div>
           </div><!-- end of row -->
           <div class="row">
-            <div id="box6" data-id="6" class="col-xs-4 box">6</div>
-            <div id="box7" data-id="7" class="col-xs-4 box">7</div>
-            <div id="box8" data-id="8" class="col-xs-4 box">8</div>
+            <div id="box6" data-id="6" class="col-xs-4 box"></div>
+            <div id="box7" data-id="7" class="col-xs-4 box"></div>
+            <div id="box8" data-id="8" class="col-xs-4 box"></div>
           </div><!-- end of row -->
         </div><!-- end of gameBoard -->
 
+        <div id="game-list" >
+          <table class="table table-striped" >
+            <thead>
+              <tr>
+                <th>Game ID</th>
+                <th>Cells</th>
+                <th>Over</th>
+                <th>Player X</th>
+                <th>Player O</th>
+              </tr>
+            </thead>
+            <tbody id='game-table-body' >
+            </tbody>
+          </table>
+        </div><!-- end of game-list -->
       </div><!-- end of game-area-->
 
     </body>

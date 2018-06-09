@@ -12,6 +12,14 @@ const onCreateGame = function (event) {
     .catch(gameUi.createError)
 }
 
+// SHOW ALL GAMES from server
+const onShowAllGames = function (event) {
+  console.log('show all games was clicked')
+  gameApi.showAllGames()
+    .then(gameUi.showSuccess)
+    .catch(gameUi.showError)
+}
+
 // GAME PLAY
 // when box is clicked
 const onSelectBox = function (event) {
@@ -85,13 +93,10 @@ const onSelectBox = function (event) {
     console.log('The game is a draw')
     gameUi.weHaveADraw()
   }
-
-
 } // end of onSelectBox
 
 module.exports = {
   onCreateGame,
-  // onCreate,
+  onShowAllGames,
   onSelectBox
-  // onRestart
 }
