@@ -2,14 +2,29 @@
 const store = require('../store')
 const gameApi = require('./api.js')
 
+// HTML BOARD
+// reset board div numbers
+const clearBoard = function () {
+  // $('.box').css('background-color', '$light-teal')
+  for (let i = 0; i < 9; i++) {
+    $('#box' + i).html(i)
+  }
+  $('#game-over-msg').addClass('hide')
+  $('#player_o').addClass('hide')
+  $('#player_x').removeClass('hide')
+  $('#game-win-msg').html('')
+  console.log('visual game board has been reset')
+}
+
 // GAME server
 // CREATE success
 const createSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
   store.game = createResponse.game
   console.log('new game successfully created')
-  console.log('store.game is ', store.game)
-  console.log('store.game.cells is ', store.game.cells)
+  // console.log('store.game is ', store.game)
+  // console.log('store.game.cells is ', store.game.cells)
+  clearBoard()
 }
 
 // CREATE error
@@ -50,7 +65,7 @@ const makeMoveSuccess = function (box, game, num) {
     }
   }
   store.update = update
-  // console.log('update is ', update)
+  console.log('update is ', update)
   // console.log('box is ', box)
   // console.log('game is ', game)
   // console.log('num is ', num)
@@ -83,17 +98,7 @@ const weHaveADraw = function () {
   $('#game-over-msg').toggleClass('hide')
 }
 
-// reset board div numbers
-const clearBoard = function () {
-  // $('.box').css('background-color', '$light-teal')
-  for (let i = 0; i < 9; i++) {
-    $('#box' + i).html(i)
-  }
-  $('#game-over-msg').addClass('hide')
-  $('#player_o').addClass('hide')
-  $('#player_x').removeClass('hide')
-  $('#game-win-msg').html('')
-}
+
 
 module.exports = {
   makeMoveSuccess,

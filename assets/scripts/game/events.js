@@ -15,7 +15,6 @@ const onCreateGame = function (event) {
 // GAME PLAY
 // when box is clicked
 const onSelectBox = function (event) {
-  // const currentGame = store.game.cells
   // stop if game is over
   if (store.game.over === true) {
     return
@@ -37,15 +36,14 @@ const onSelectBox = function (event) {
   } else {
     store.game.cells[num] = 'o'
   }
-  console.log('currentGame is now ', store.game.cells)
+  // console.log('currentGame is now ', store.game.cells)
   gameUi.makeMoveSuccess(event.target, store.game, num)
   // store.game.cells = currentGame
   console.log('store is ', store)
-  // console.log(store.cells[0], store.cells[1], store.cells[2])
 
   // win conditions
   const c = store.game.cells
-  console.log('c[0] is ', c[0])
+  // console.log('c[0] is ', c[0])
 
   // win in rows
   if (c[0] !== '' && c[0] === c[1] && c[0] === c[2]) {
