@@ -120,9 +120,15 @@ const showOneError = function (error) {
 // make a move
 // game = store.game
 const makeMoveSuccess = function (box, game, num) {
-  $('#box' + num).html(game.cells[num])
+  // $('#box' + num).html(game.cells[num])
   $('#player_x').toggleClass('hide')
   $('#player_o').toggleClass('hide')
+  // add x or o img to div
+  if ($('#player_x').hasClass('hide')) {
+    $('#box' + num).prepend($('<img>', {src: 'assets/images/x.png', alt: ''}))
+  } else {
+    $('#box' + num).prepend($('<img>', {src: 'assets/images/o.png', alt: ''}))
+  }
   // store into store.update
   const update = {
     game: {
