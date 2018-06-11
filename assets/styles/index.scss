@@ -19,7 +19,9 @@ h1 {
 }
 
 h4 {
-  color: $teal;
+  color: $black;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 img {
@@ -72,16 +74,6 @@ img {
   color: $orange;
 }
 
-#gameStatus {
-  color: $teal;
-  font-size: 24px;
-}
-
-#main-content {
-  background-color: $teal;
-  padding: 0 50px;
-}
-
 #box0 {
   border-bottom: 2px solid $teal;
   border-right: 2px solid $teal;
@@ -128,4 +120,23 @@ img {
 #box8 {
   border-left: 2px solid $teal;
   border-top: 2px solid $teal;
+}
+
+#game-area {
+  padding: 0 50px;
+}
+
+#game-list {
+  padding-top: 50px;
+}
+
+#gameStatus {
+  color: $teal;
+  font-size: 24px;
+  height: 10vw;
+}
+
+#main-content {
+  background-color: $teal;
+  padding: 0 50px;
 }
