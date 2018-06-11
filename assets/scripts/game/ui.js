@@ -22,7 +22,12 @@ const populateBoard = function (data) {
   console.log('data is', data)
   const info = data.game.cells
   for (let i = 0; i < info.length; i++) {
-    $('#box' + i).html(info[i])
+    // $('#box' + i).html(info[i])
+    if (info[i] === 'x') {
+      $('#box' + i).prepend($('<img>', {src: config.imgUrl + '/assets/images/X.png', alt: ''}))
+    } else if (info[i] === 'o') {
+      $('#box' + i).prepend($('<img>', {src: config.imgUrl + '/assets/images/O.png', alt: ''}))
+    }
   }
 }
 
@@ -118,6 +123,7 @@ const showOneSuccess = function (showOneResponse) {
   $('#current-game-display').html(store.show.game.id)
   store.game = store.show
   $('#gameBoard').toggleClass('playable')
+  $('#game-info-msg').html('Showing requested game')
 }
 
 // SHOW ONE error
