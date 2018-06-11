@@ -23,6 +23,7 @@ const signInSuccess = function (signInResponse) {
   $('#sign-in-user-display').html(signInResponse.user.email)
   $('#game-win-msg').html('')
   $('.on-sign-in').toggleClass('hide')
+  $('#sign-out-msg').html('')
   gameEvents.onCreateGame()
 }
 
@@ -34,6 +35,7 @@ const signUpSuccess = function (signUpResponse) {
   $('#sign-up-form input[type=email]').val('')
   $('#sign-up-form input[type=password]').val('')
   $('#sign-up-msg').html('Signed up as ' + signUpResponse.user.email).css('color', 'green')
+  $('#sign-out-msg').html('')
   // on Sign In after a Sign Up
   const onSignInAfterUp = function () {
     console.log('signing in after a sign up')
@@ -65,7 +67,7 @@ const changePWError = function (error) {
 // SIGN OUT success
 const signOutSuccess = function () {
   console.log('sign out success ')
-  $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', 'green')
+  $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email)
   delete store.user
   gameUi.clearBoard()
   $('#game-table-body').html('')
@@ -75,6 +77,7 @@ const signOutSuccess = function () {
   } else {
     $('game-list').toggleClass('hide')
   }
+  $('#game-info-msg').html('')
 }
 
 // SIGN OUT error
