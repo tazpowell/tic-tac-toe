@@ -81,6 +81,7 @@ const onSelectBox = function (event) {
   // check if number has been used
   if (store.game.cells[num] !== '') {
     console.log('number is already used, pick again')
+    $('#game-info-msg').html('Please pick a different box')
     return
   }
 
