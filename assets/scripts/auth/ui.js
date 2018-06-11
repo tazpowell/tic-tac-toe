@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const gameUi = require('../game/ui.js')
+const gameEvents = require('../game/events.js')
 const authApi = require('./api.js')
 
 // SIGN UP error
@@ -22,6 +23,7 @@ const signInSuccess = function (signInResponse) {
   $('#sign-in-user-display').html(signInResponse.user.email)
   $('#game-win-msg').html('')
   $('.on-sign-in').toggleClass('hide')
+  gameEvents.onCreateGame()
 }
 
 // SIGN UP success

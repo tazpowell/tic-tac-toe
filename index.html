@@ -30,7 +30,7 @@
         </div> <!-- end welcome-content -->
 
         <div id="game-btn-content" class="on-sign-in hide" >
-          <button id="new-game-btn" type="button" class="btn-line">Create a new game</button>
+          <button id="new-game-btn" type="button" class="btn-line">Start a new game</button>
           <button id="show-all-games-btn" type="button" class="btn-line">Show all games</button>
           <button id="show-store-btn" type="button" class="btn-line">Show `store`</button>
         </div> <!-- end game-btn-content -->
@@ -152,11 +152,13 @@
       <div id="game-area" class="col-md-8">
         <br>
         <label for="gameStatus">Game Status:</label>
+
         <div id="gameStatus">
           <h2 class="on-sign-in hide" >Current player is:
             <span id="player_x">Player X</span>
             <span id="player_o" class="hide" >Player O</span>
           </h2>
+          <span id="game-info-msg" class="msg"></span>
           <span id="game-win-msg" class="msg"></span>
           <span id="game-over-msg" class="hide msg">Game Over</span>
         </div><!-- end of gameStatus-->

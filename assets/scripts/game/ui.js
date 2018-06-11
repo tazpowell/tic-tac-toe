@@ -62,6 +62,10 @@ const createSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
   store.game = createResponse.game
   console.log('new game successfully created')
+  $('#game-info-msg').html('New game has started')
+  if ($('#game-info-msg').hasClass('hide')) {
+    $('#game-info-msg').toggleClass('hide')
+  }
   clearBoard()
 }
 
@@ -167,6 +171,7 @@ const weHaveAWinner = function (value) {
     .catch(updateError)
   console.log('store is ', store)
   $('#game-over-msg').toggleClass('hide')
+  $('#game-info-msg').toggleClass('hide')
 }
 
 const weHaveADraw = function () {
@@ -177,6 +182,7 @@ const weHaveADraw = function () {
     .then(updateSuccess)
     .catch(updateError)
   $('#game-over-msg').toggleClass('hide')
+  $('#game-info-msg').toggleClass('hide')
 }
 
 module.exports = {
