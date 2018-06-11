@@ -62,6 +62,13 @@ const onSelectBox = function (event) {
     return
   }
 
+  // stop if gameboard does not have 'playable' class
+  if ($('#gameBoard').hasClass('playable')) {
+  } else {
+    $('#game-info-msg').html('Cannot play past game, start a new game to play')
+    return
+  }
+
   // stop if game is over
   if (store.game.over === true) {
     return

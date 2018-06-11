@@ -73,6 +73,10 @@ const createSuccess = function (createResponse) {
   if ($('#game-info-msg').hasClass('hide')) {
     $('#game-info-msg').toggleClass('hide')
   }
+  if ($('#gameBoard').hasClass('playable')) {
+  } else {
+    ($('#gameBoard').toggleClass('playable'))
+  }
   clearBoard()
 }
 
@@ -122,7 +126,9 @@ const showOneSuccess = function (showOneResponse) {
   populateBoard(store.show)
   $('#current-game-display').html(store.show.game.id)
   store.game = store.show
-  $('#gameBoard').toggleClass('playable')
+  if ($('#gameBoard').hasClass('playable')) {
+    ($('#gameBoard').toggleClass('playable'))
+  }
   $('#game-info-msg').html('Showing requested game')
 }
 
