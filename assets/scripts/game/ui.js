@@ -1,6 +1,7 @@
 'use strict'
 const store = require('../store')
 const gameApi = require('./api.js')
+const config = require('../config.js')
 
 // HTML BOARD
 // reset board div numbers
@@ -139,7 +140,7 @@ const makeMoveSuccess = function (box, game, num) {
   $('#player_o').toggleClass('hide')
   // add x or o img to div
   if ($('#player_x').hasClass('hide')) {
-    $('#box' + num).prepend($('<img>', {src: '/../../public/images/X.png', alt: ''}))
+    $('#box' + num).prepend($('<img>', {src: config.imgUrl + 'assets/images/X.png', alt: ''}))
   } else {
     $('#box' + num).prepend($('<img>', {src: './assets/images/O.png', alt: ''}))
   }

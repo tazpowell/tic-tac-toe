@@ -12,6 +12,19 @@ if (window.location.hostname === 'localhost') {
   apiUrl = apiUrls.production
 }
 
+let imgUrl
+const imgUrls = {
+  production: 'https://github.com/tazpowell/tic-tac-toe/blob/master/',
+  development: ''
+}
+
+if (window.location.hostname === 'localhost') {
+  imgUrl = imgUrls.development
+} else {
+  imgUrl = imgUrls.production
+}
+
 module.exports = {
-  apiUrl
+  apiUrl,
+  imgUrl
 }
