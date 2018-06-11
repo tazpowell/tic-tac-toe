@@ -26,7 +26,8 @@ const signInSuccess = function (signInResponse) {
   console.log('store is ', store)
   $('#sign-in-form input[type=email]').val('')
   $('#sign-in-form input[type=password]').val('')
-  $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', 'green')
+  $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', 'white')
+  $('#sign-in-user-display').html(signInResponse.user.email)
 }
 
 // SIGN IN error
