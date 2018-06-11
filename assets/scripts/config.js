@@ -14,7 +14,7 @@ if (window.location.hostname === 'localhost') {
 
 let imgUrl
 const imgUrls = {
-  production: 'https://github.com/tazpowell/tic-tac-toe/blob/master/',
+  production: 'https://raw.githubusercontent.com/tazpowell/tic-tac-toe/master',
   development: ''
 }
 
