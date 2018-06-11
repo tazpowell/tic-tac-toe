@@ -20,6 +20,7 @@ const clearBoard = function () {
 // POPULATE game board with retrieved game data
 const populateBoard = function (data) {
   console.log('data is', data)
+  clearBoard()
   const info = data.game.cells
   for (let i = 0; i < info.length; i++) {
     // $('#box' + i).html(info[i])
