@@ -17,8 +17,23 @@
       <!-- title and status  -->
       <div id="main-content" class="col-md-4" >
         <h1>Tic Tac Toe</h1>
-        <!-- tabs  -->
-        <ul class="nav nav-tabs">
+
+        <div id="welcome-content" >
+          <h4>Welcome!</h4>
+          <p>Please sign in to play a game.</p>
+          <br>
+          <label for="sign-in-user-display">Currently signed in as:</label>
+          <p id="sign-in-user-display">placeholder@email.com</p>
+        </div> <!-- end welcome-content -->
+
+        <div id="game-btn-content" class="" >
+          <button id="new-game-btn" type="button" class="btn-line">Create a new game</button>
+          <button id="show-all-games-btn" type="button" class="btn-line">Show all games</button>
+          <button id="show-store-btn" type="button" class="btn-line">Show `store`</button>
+        </div> <!-- end game-btn-content -->
+
+        <!-- tabs sign up sign in  -->
+        <ul id="nav-sign-up-in" class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#tabSignIn">Sign In</a></li>
           <li><a data-toggle="tab" href="#tabSignUp">Sign Up</a></li>
         </ul>
@@ -68,11 +83,8 @@
           </div> <!-- end tabSignUp -->
         </div><!-- end tab-content -->
 
-        <hr>
-        <!-- <button id="start-btn" type="button" class="btn-default">Refresh board</button> -->
-        <button id="new-game-btn" type="button" class="btn-line">Create a new game</button>
-        <button id="show-all-games-btn" type="button" class="btn-line">Show all games</button>
-        <button id="show-store-btn" type="button" class="btn-line">Show `store`</button>
+
+
         <!-- Get game by ID -->
         <div class="form-area hide">
           <h4>Get game by ID</h4>
@@ -86,39 +98,48 @@
           </form>
         </div><!-- end of form-area -->
 
-        <hr>
+        <!-- <hr>
         <h2>Current player is:
           <span id="player_x">Player X</span>
           <span id="player_o" class="hide" >Player O</span>
-        </h2>
+        </h2> -->
 
+        <!-- tabs sign out change pw  -->
+        <ul id="nav-sign-out-pw" class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#tabSignOut">Sign Out</a></li>
+          <li><a data-toggle="tab" href="#tabChangePW">Change Password</a></li>
+        </ul>
 
-        <!-- CHANGE PW -->
-        <hr>
-        <div class="form-area hide">
-          <h4>Change Password</h4>
-          <form id="change-pw-form">
-            <div class="form-group">
-              <label for="old-pw-change">Old password:</label>
-              <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password">
-            </div>
-            <div class="form-group">
-              <label for="new-pw-change">New password:</label>
-              <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password">
-            </div>
-            <span id="change-pw-msg"></span>
-            <button type="submit" class="btn-line">Change Password</button>
-          </form>
-        </div><!-- end of form-area -->
+        <div class="tab-content">
+          <div id="tabSignOut" class="tab-pane fade in active">
+            <!-- SIGN OUT -->
+            <div class="form-area">
+              <!-- <h4>Sign Out</h4> -->
+              <span id="sign-out-msg"></span>
+              <button id="sign-out-btn" type="button" class="btn-line">Sign Out</button>
+            </div><!-- end of form-area -->
+          </div> <!-- end tabSignOut -->
 
-        <!-- SIGN OUT -->
-        <hr>
-        <div class="form-area hide">
-          <h4>Sign Out</h4>
-          <span id="sign-out-msg"></span>
-          <button id="sign-out-btn" type="button" class="btn-line">Sign Out</button>
-        </div><!-- end of form-area -->
+          <div id="tabChangePW" class="tab-pane fade">
+            <!-- CHANGE PW -->
+            <div class="form-area">
+              <!-- <h4>Change Password</h4> -->
+              <form id="change-pw-form">
+                <div class="form-group">
+                  <label for="old-pw-change">Old password:</label>
+                  <input id="old-pw-change" class="form-control" name="passwords[old]" type="password" placeholder="Old password">
+                </div>
+                <div class="form-group">
+                  <label for="new-pw-change">New password:</label>
+                  <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password">
+                </div>
+                <span id="change-pw-msg"></span>
+                <button type="submit" class="btn-line">Change Password</button>
+              </form>
+            </div><!-- end of form-area -->
+          </div> <!-- end tabChangePW -->
 
+        </div> <!-- end tab-content -->
 
 
       </div><!-- end of main-content -->
@@ -126,8 +147,13 @@
 
       <!-- gameboard area -->
       <div id="game-area" class="col-md-8">
-
+        <br>
+        <label for="gameStatus">Game Status:</label>
         <div id="gameStatus">
+          <h2>Current player is:
+            <span id="player_x">Player X</span>
+            <span id="player_o" class="hide" >Player O</span>
+          </h2>
           <span id="game-win-msg" class="msg"></span>
           <span id="game-over-msg" class="hide msg">Game Over</span>
         </div><!-- end of gameStatus-->

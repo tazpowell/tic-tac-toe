@@ -23,8 +23,17 @@ body {
   // padding-left: 50px;
 }
 
+button {
+  margin: 5px 0;
+}
+
 h1 {
   font-size: 54px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
 }
 
 h4 {
@@ -74,7 +83,9 @@ img {
 }
 
 .form-area {
-  margin-top: 10px;
+  border: 1px solid $white;
+  border-top-color: transparent;
+  padding: 20px;
 }
 
 .game-end {
@@ -162,17 +173,30 @@ img {
   padding: 0 50px;
 }
 
+#game-btn-content {
+  margin: 0 0 20px 0;
+}
+
 #game-list {
   padding-top: 50px;
 }
 
 #gameStatus {
+  border: 1px dotted $teal;
   color: $teal;
-  font-size: 24px;
-  height: 10vw;
+  font-size: 20px;
+  // margin: 50px 0;
+  height: 6vw;
+  margin-bottom: 50px;
+  padding: 10px;
 }
 
 #main-content {
   background-color: $teal;
+  height: 100vh;
   padding: 0 50px;
+}
+
+#welcome-content {
+  margin: 20px 0;
 }
