@@ -62,6 +62,7 @@ const createSuccess = function (createResponse) {
   console.log('createResponse is ', createResponse)
   store.game = createResponse.game
   console.log('new game successfully created')
+  $('#current-game-display').html(store.game.id)
   $('#game-info-msg').html('New game has started')
   if ($('#game-info-msg').hasClass('hide')) {
     $('#game-info-msg').toggleClass('hide')
@@ -109,10 +110,13 @@ const showAllError = function (error) {
 const showOneSuccess = function (showOneResponse) {
   console.log('showOneResponse is ', showOneResponse)
   console.log('game data retrieved')
-  $('#game-by-id-form input[type=text]').val('')
+  // $('#game-by-id-form input[type=text]').val('')
   store.show = showOneResponse
   console.log('store.show is ', store.show)
   populateBoard(store.show)
+  $('#current-game-display').html(store.show.game.id)
+  store.game = store.show
+  $('#gameBoard').toggleClass('playable')
 }
 
 // SHOW ONE error
@@ -135,7 +139,7 @@ const makeMoveSuccess = function (box, game, num) {
   $('#player_o').toggleClass('hide')
   // add x or o img to div
   if ($('#player_x').hasClass('hide')) {
-    $('#box' + num).prepend($('<img>', {src: 'assets/images/X.png', alt: ''}))
+    $('#box' + num).prepend($('<img>', {src: '../../public/images/X.png', alt: ''}))
   } else {
     $('#box' + num).prepend($('<img>', {src: 'assets/images/O.png', alt: ''}))
   }
