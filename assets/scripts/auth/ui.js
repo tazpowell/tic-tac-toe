@@ -28,6 +28,7 @@ const signInSuccess = function (signInResponse) {
   $('#sign-in-form input[type=password]').val('')
   $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', 'white')
   $('#sign-in-user-display').html(signInResponse.user.email)
+  $('#game-win-msg').html('')
   $('.on-sign-in').toggleClass('hide')
 }
 

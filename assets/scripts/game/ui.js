@@ -33,7 +33,7 @@ const createTable = function (json) {
   // loop through array to create rows
   for (let i = 0; i < json.length; i++) {
     bodyRows += '<tr>'
-    bodyRows += '<td><button type="button" class="btn-default clickable">View</button></td>'
+    bodyRows += '<td><button type="button" class="btn-line clickable">View</button></td>'
     bodyRows += '<td class="game-list-id" >' + json[i].id + '</td>'
     bodyRows += '<td>' + json[i].cells + '</td>'
     bodyRows += '<td>' + json[i].over + '</td>'
@@ -91,6 +91,7 @@ const showAllSuccess = function (showAllResponse) {
   store.list = showAllResponse.games
   console.log('game data retrieved')
   console.log('store.list is ', store.list)
+  $('#game-list').toggleClass('hide')
   $('#game-table-body').html(createTable(showAllResponse.games))
 }
 
@@ -114,6 +115,11 @@ const showOneSuccess = function (showOneResponse) {
 const showOneError = function (error) {
   console.log('showOneError is ', error)
   console.log('Failed to retrieve game data')
+}
+
+// display message to sign in
+const mustSignIn = function () {
+  $('#game-win-msg').html('Please sign in to play')
 }
 
 // GAME PLAY
@@ -186,5 +192,6 @@ module.exports = {
   showAllError,
   showOneSuccess,
   showOneError,
-  weHaveADraw
+  weHaveADraw,
+  mustSignIn
 }

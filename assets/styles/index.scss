@@ -179,6 +179,11 @@ img {
 
 #game-list {
   padding-top: 50px;
+
+  .btn-line {
+    border-color: $teal;
+    color: $teal;
+  }
 }
 
 #gameStatus {

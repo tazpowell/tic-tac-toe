@@ -55,6 +55,13 @@ const onShowOneGame = function (event) {
 // GAME PLAY
 // when box is clicked
 const onSelectBox = function (event) {
+  // stop if user is not signed in
+  if (typeof store.user === 'object') {
+  } else {
+    gameUi.mustSignIn()
+    return
+  }
+
   // stop if game is over
   if (store.game.over === true) {
     return
