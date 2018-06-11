@@ -70,6 +70,13 @@ const onSelectBox = function (event) {
     return
   }
 
+  // check if game as been started/created
+  if (store.hasOwnProperty('game')) {
+  } else {
+    $('#game-info-msg').html('Start a new game to play')
+    return
+  }
+
   // stop if game is over
   if (store.game.over === true) {
     $('#game-info-msg').html('Start a new game to play!')

@@ -24,7 +24,7 @@ const signInSuccess = function (signInResponse) {
   $('#game-win-msg').html('')
   $('.on-sign-in').toggleClass('hide')
   $('#sign-out-msg').html('')
-  gameEvents.onCreateGame()
+  // gameEvents.onCreateGame()
 }
 
 // SIGN UP success
