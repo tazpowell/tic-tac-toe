@@ -28,6 +28,7 @@ const signInSuccess = function (signInResponse) {
   $('#sign-in-form input[type=password]').val('')
   $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', 'white')
   $('#sign-in-user-display').html(signInResponse.user.email)
+  $('.on-sign-in').toggleClass('hide')
 }
 
 // SIGN IN error
@@ -54,6 +55,8 @@ const signOutSuccess = function () {
   delete store.user
   gameUi.clearBoard()
   $('#game-table-body').html('')
+  $('#sign-in-msg').html('')
+  $('.on-sign-in').toggleClass('hide')
 }
 
 // SIGN OUT error
