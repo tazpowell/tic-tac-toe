@@ -28,6 +28,7 @@ const onShowAllGames = function (event) {
 
 // SHOW ONE GAME from game list
 const onShowClickedGame = function (event) {
+  $('#modalGameList').modal('toggle')
   console.log('show clicked game was clicked')
   // console.log('what is ', event.target.parent.next)
   const parent = $(event.target).parent()

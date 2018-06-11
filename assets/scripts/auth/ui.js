@@ -73,10 +73,10 @@ const signOutSuccess = function () {
   $('#game-table-body').html('')
   $('#sign-in-msg').html('')
   $('.on-sign-in').toggleClass('hide')
-  if ($('game-list').hasClass('hide')) {
-  } else {
-    $('game-list').toggleClass('hide')
-  }
+  // if ($('game-list').hasClass('hide')) {
+  // } else {
+  //   $('game-list').toggleClass('hide')
+  // }
   $('#game-info-msg').html('')
 }
 

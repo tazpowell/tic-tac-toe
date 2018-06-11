@@ -101,6 +101,14 @@ p {
   display: none;
 }
 
+.modal-title {
+  float: left;
+
+  h4 {
+    color: $teal;
+  }
+}
+
 .msg {
   color: $orange;
 }
@@ -193,7 +201,7 @@ p {
 }
 
 #game-list {
-  padding-top: 50px;
+  // padding-top: 50px;
 
   .btn-line {
     border-color: $teal;

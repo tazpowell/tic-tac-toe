@@ -110,8 +110,9 @@ const showAllSuccess = function (showAllResponse) {
   store.list = showAllResponse.games
   console.log('game data retrieved')
   console.log('store.list is ', store.list)
-  $('#game-list').toggleClass('hide')
+  // $('#game-list').toggleClass('hide')
   $('#game-table-body').html(createTable(showAllResponse.games))
+  $('#modalGameList').modal('toggle')
 }
 
 // SHOW ALL error

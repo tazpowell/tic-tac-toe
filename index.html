@@ -17,6 +17,10 @@
       <!-- title and status  -->
       <div id="main-content" class="col-md-4" >
         <h1>Tic Tac Toe</h1>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-line" data-toggle="modal" data-target="#modalGameList">
+          Launch demo modal
+        </button>
 
         <div id="welcome-content" >
           <h4>Welcome!</h4>
@@ -191,7 +195,7 @@
           </div><!-- end of row -->
         </div><!-- end of gameBoard -->
 
-        <div id="game-list" class="hide" >
+        <div id="game-listB" class="hide" >
           <table class="table table-striped" >
             <thead>
               <tr>
@@ -203,11 +207,47 @@
                 <th>Player O</th>
               </tr>
             </thead>
-            <tbody id='game-table-body' >
+            <tbody id='game-table-bodyB' >
             </tbody>
           </table>
         </div><!-- end of game-list -->
       </div><!-- end of game-area-->
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalGameList" tabindex="-1" role="dialog" aria-labelledby="modalGameListTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modalGameListTitle">Game List</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="game-list" class="modal-body">
+              <table class="table table-striped" >
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Game ID</th>
+                    <th>Cells</th>
+                    <th>Over</th>
+                    <th>Player X</th>
+                    <th>Player O</th>
+                  </tr>
+                </thead>
+                <tbody id='game-table-body' >
+                </tbody>
+              </table>
+            </div>
+            <!-- <div class="modal-footer"> -->
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div> <!-- end Modal -->
 
     </body>
 </html>
