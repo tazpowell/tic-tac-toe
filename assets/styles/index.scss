@@ -6,9 +6,16 @@ $teal: #35c9ab;
 $light-teal: #c4f1e8;
 $light-gray: #d2dedc;
 $orange: #f88a27;
+$white: #fff;
+$black: #333;
 
 body {
-  padding-left: 50px;
+  font-family: 'Quicksand', sans-serif;
+  // padding-left: 50px;
+}
+
+h1 {
+  font-size: 54px;
 }
 
 h4 {
@@ -21,6 +28,15 @@ img {
   object-fit: contain;
 }
 
+.btn-line {
+  background-color: transparent;
+  border-color: $white;
+  border-radius: 2px;
+  color: $white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
 .hide {
   display: none;
 }
@@ -30,8 +46,8 @@ img {
 }
 
 .box {
-  background-color: $light-teal;
-  border: 1px solid $teal;
+  // background-color: $light-teal;
+  // border: 1px solid $teal;
   color: $teal;
   // display: table-cell;
   // font-size: 48px;
@@ -48,9 +64,9 @@ img {
   overflow: hidden;
 }
 
-// .clickable {
-//   cursor: pointer;
-// }
+.form-area {
+  margin-top: 10px;
+}
 
 .msg {
   color: $orange;
@@ -61,14 +77,55 @@ img {
   font-size: 24px;
 }
 
-.form-area {
-  margin-top: 10px;
+#main-content {
+  background-color: $teal;
+  padding: 0 50px;
 }
 
-#main-content {
-  margin-right: 20px;
+#box0 {
+  border-bottom: 2px solid $teal;
+  border-right: 2px solid $teal;
 }
-//
-// #game-area {
-//   float: right;
-// }
+
+#box1 {
+  border-bottom: 2px solid $teal;
+  border-left: 2px solid $teal;
+  border-right: 2px solid $teal;
+}
+
+#box2 {
+  border-bottom: 2px solid $teal;
+  border-left: 2px solid $teal;
+}
+
+#box3 {
+  border-bottom: 2px solid $teal;
+  border-right: 2px solid $teal;
+  border-top: 2px solid $teal;
+}
+
+#box4 {
+  border: 2px solid $teal;
+}
+
+#box5 {
+  border-bottom: 2px solid $teal;
+  border-left: 2px solid $teal;
+  border-top: 2px solid $teal;
+}
+
+#box6 {
+  border-right: 2px solid $teal;
+  border-top: 2px solid $teal;
+}
+
+#box7 {
+  border-left: 2px solid $teal;
+  border-right: 2px solid $teal;
+  border-top: 2px solid $teal;
+}
+
+#box8 {
+  border-left: 2px solid $teal;
+  border-top: 2px solid $teal;
+}

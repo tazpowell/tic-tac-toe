@@ -3,6 +3,7 @@
     <head>
       <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -14,12 +15,12 @@
 
     <body>
       <!-- title and status  -->
-      <div id="main-content" class="col-md-3" >
+      <div id="main-content" class="col-md-4" >
         <h1>Tic Tac Toe</h1>
         <!-- <button id="start-btn" type="button" class="btn-default">Refresh board</button> -->
-        <button id="new-game-btn" type="button" class="btn-default">Create a new game</button>
-        <button id="show-all-games-btn" type="button" class="btn-default">Show all games</button>
-        <button id="show-store-btn" type="button" class="btn-default">Show `store`</button>
+        <button id="new-game-btn" type="button" class="btn-line">Create a new game</button>
+        <button id="show-all-games-btn" type="button" class="btn-line">Show all games</button>
+        <button id="show-store-btn" type="button" class="btn-line">Show `store`</button>
         <!-- Get game by ID -->
         <hr>
         <div class="form-area">
@@ -30,7 +31,7 @@
               <input id="game-id" class="form-control" name="id" type="text" placeholder="Game ID number">
             </div>
             <span id="game-id-msg"></span>
-            <button type="submit" class="btn-default">Get Game</button>
+            <button type="submit" class="btn-line">Get Game</button>
           </form>
         </div><!-- end of form-area -->
 
@@ -54,7 +55,7 @@
               <input id="pwd-signin" class="form-control" name="credentials[password]" type="password" value="" placeholder="Enter password">
             </div>
             <span id="sign-in-msg"></span>
-            <button type="submit" class="btn-default">Sign In</button>
+            <button type="submit" class="btn-line">Sign In</button>
           </form>
         </div><!-- end of form-area -->
 
@@ -72,7 +73,7 @@
               <input id="new-pw-change" class="form-control" name="passwords[new]" type="password" placeholder="New password">
             </div>
             <span id="change-pw-msg"></span>
-            <button type="submit" class="btn-default">Change Password</button>
+            <button type="submit" class="btn-line">Change Password</button>
           </form>
         </div><!-- end of form-area -->
 
@@ -81,7 +82,7 @@
         <div class="form-area">
           <h4>Sign Out</h4>
           <span id="sign-out-msg"></span>
-          <button id="sign-out-btn" type="button" class="btn-default">Sign Out</button>
+          <button id="sign-out-btn" type="button" class="btn-line">Sign Out</button>
         </div><!-- end of form-area -->
 
         <!-- SIGN UP -->
@@ -102,7 +103,7 @@
               <input id="pwd-conf-signup" class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="Retype password">
             </div>
             <span id="sign-up-msg"></span>
-            <button type="submit" class="btn-default">Sign Up</button>
+            <button type="submit" class="btn-line">Sign Up</button>
           </form>
         </div><!-- end of form-area -->
 
