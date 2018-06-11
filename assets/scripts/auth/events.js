@@ -2,6 +2,7 @@
 // const store = require('../store')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
+const store = require('../store')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 // on Sign Up
@@ -10,6 +11,9 @@ const onSignUp = function (event) {
   console.log('the sign up form was submitted')
   const data = getFormFields(event.target)
   console.log('data is', data)
+  store.credentials = {}
+  store.credentials.password = data.credentials.password
+  console.log('store.user at onSignUP is ', store.user)
   // api
   authApi.signUp(data)
     .then(authUi.signUpSuccess)

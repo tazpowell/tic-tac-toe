@@ -1,15 +1,7 @@
 'use strict'
 const store = require('../store')
 const gameUi = require('../game/ui.js')
-
-// SIGN UP success
-const signUpSuccess = function (signUpResponse) {
-  console.log('signUpResponse is ', signUpResponse)
-  console.log('sign up success')
-  $('#sign-up-form input[type=email]').val('')
-  $('#sign-up-form input[type=password]').val('')
-  $('#sign-up-msg').html('Signed up as ' + signUpResponse.user.email).css('color', 'green')
-}
+const authApi = require('./api.js')
 
 // SIGN UP error
 const signUpError = function (error) {
@@ -30,6 +22,25 @@ const signInSuccess = function (signInResponse) {
   $('#sign-in-user-display').html(signInResponse.user.email)
   $('#game-win-msg').html('')
   $('.on-sign-in').toggleClass('hide')
+}
+
+// SIGN UP success
+const signUpSuccess = function (signUpResponse) {
+  console.log('signUpResponse is ', signUpResponse)
+  console.log('sign up success')
+  store.credentials.email = signUpResponse.user.email
+  $('#sign-up-form input[type=email]').val('')
+  $('#sign-up-form input[type=password]').val('')
+  $('#sign-up-msg').html('Signed up as ' + signUpResponse.user.email).css('color', 'green')
+  // on Sign In after a Sign Up
+  const onSignInAfterUp = function () {
+    console.log('signing in after a sign up')
+    console.log('store.credentials is', store.credentials)
+    authApi.signIn(store)
+      .then(signInSuccess)
+      .catch(signInError)
+  }
+  onSignInAfterUp()
 }
 
 // SIGN IN error
