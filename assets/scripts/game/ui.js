@@ -77,6 +77,10 @@ const createSuccess = function (createResponse) {
   } else {
     ($('#gameBoard').toggleClass('playable'))
   }
+  if ($('#player_x').hasClass('hide')) {
+    $('#player_x').toggleClass('hide')
+    $('#player_o').toggleClass('hide')
+  }
   clearBoard()
 }
 
