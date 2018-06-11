@@ -135,9 +135,9 @@ const makeMoveSuccess = function (box, game, num) {
   $('#player_o').toggleClass('hide')
   // add x or o img to div
   if ($('#player_x').hasClass('hide')) {
-    $('#box' + num).prepend($('<img>', {src: 'assets/images/x.png', alt: ''}))
+    $('#box' + num).prepend($('<img>', {src: 'assets/images/X.png', alt: ''}))
   } else {
-    $('#box' + num).prepend($('<img>', {src: 'assets/images/o.png', alt: ''}))
+    $('#box' + num).prepend($('<img>', {src: 'assets/images/O.png', alt: ''}))
   }
   // store into store.update
   const update = {
