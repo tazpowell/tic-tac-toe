@@ -182,7 +182,7 @@ const makeMoveSuccess = function (box, game, num) {
     .catch(updateError)
 }
 
-const weHaveAWinner = function (value) {
+const weHaveAWinner = function (value, num1, num2, num3) {
   // console.log('value is ', value)
   $('#game-win-msg').html('Player ' + value + ' wins!')
   store.game.over = true
@@ -194,6 +194,9 @@ const weHaveAWinner = function (value) {
   // console.log('store is ', store)
   $('#game-over-msg').toggleClass('hide')
   $('#game-info-msg').toggleClass('hide')
+  $('#box' + num1).toggleClass('winner')
+  $('#box' + num2).toggleClass('winner')
+  $('#box' + num3).toggleClass('winner')
   // console.log('end of weHaveAWinner')
 }
 

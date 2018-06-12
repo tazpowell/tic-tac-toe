@@ -127,33 +127,33 @@ const onSelectBox = function (event) {
     // win in rows
     if (c[0] !== '' && c[0] === c[1] && c[0] === c[2]) {
       // console.log('Player', c[0], 'wins!')
-      gameUi.weHaveAWinner(c[0])
+      gameUi.weHaveAWinner(c[0], 0, 1, 2)
     } else if (c[3] !== '' && c[3] === c[4] && c[3] === c[5]) {
       // console.log('Player ', c[3], 'wins!')
-      gameUi.weHaveAWinner(c[3])
+      gameUi.weHaveAWinner(c[3], 3, 4, 5)
     } else if (c[6] !== '' && c[6] === c[7] && c[6] === c[8]) {
       // console.log('Player ', c[6], 'wins!')
-      gameUi.weHaveAWinner(c[6])
+      gameUi.weHaveAWinner(c[6], 6, 7, 8)
     }
     // win in columns
     if (c[0] !== '' && c[0] === c[3] && c[0] === c[6]) {
       // console.log('Player', c[0], 'wins!')
-      gameUi.weHaveAWinner(c[0])
+      gameUi.weHaveAWinner(c[0], 0, 3, 6)
     } else if (c[1] !== '' && c[1] === c[4] && c[1] === c[7]) {
       // console.log('Player ', c[1], 'wins!')
-      gameUi.weHaveAWinner(c[1])
+      gameUi.weHaveAWinner(c[1], 1, 4, 7)
     } else if (c[2] !== '' && c[2] === c[5] && c[2] === c[8]) {
       // console.log('Player ', c[2], 'wins!')
-      gameUi.weHaveAWinner(c[2])
+      gameUi.weHaveAWinner(c[2], 2, 5, 8)
     }
 
     // win in diagonals
     if (c[0] !== '' && c[0] === c[4] && c[0] === c[8]) {
       // console.log('Player', c[0], 'wins!')
-      gameUi.weHaveAWinner(c[0])
+      gameUi.weHaveAWinner(c[0], 0, 4, 8)
     } else if (c[2] !== '' && c[2] === c[4] && c[2] === c[6]) {
       // console.log('Player ', c[2], 'wins!')
-      gameUi.weHaveAWinner(c[2])
+      gameUi.weHaveAWinner(c[2], 2, 4, 6)
     }
   }
 
