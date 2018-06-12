@@ -120,8 +120,8 @@ const onSelectBox = function (event) {
 
   // win conditions
   const c = store.game.cells
-  console.log('c is ', c)
-  console.log('num is ', num)
+  // console.log('c is ', c)
+  // console.log('num is ', num)
 
   const winCheck = function (c) {
     // win in rows
@@ -137,13 +137,13 @@ const onSelectBox = function (event) {
     }
     // win in columns
     if (c[0] !== '' && c[0] === c[3] && c[0] === c[6]) {
-      console.log('Player', c[0], 'wins!')
+      // console.log('Player', c[0], 'wins!')
       gameUi.weHaveAWinner(c[0])
     } else if (c[1] !== '' && c[1] === c[4] && c[1] === c[7]) {
-      console.log('Player ', c[1], 'wins!')
+      // console.log('Player ', c[1], 'wins!')
       gameUi.weHaveAWinner(c[1])
     } else if (c[2] !== '' && c[2] === c[5] && c[2] === c[8]) {
-      console.log('Player ', c[2], 'wins!')
+      // console.log('Player ', c[2], 'wins!')
       gameUi.weHaveAWinner(c[2])
     }
 
@@ -158,10 +158,8 @@ const onSelectBox = function (event) {
   }
 
   winCheck(c)
-  console.log('ran winCheck with num', num)
+  // console.log('ran winCheck with num', num)
   gameUi.makeMoveSuccess(event.target, store.game, num)
-  // gameUi.makeMoveSuccessNoWin(event.target, store.game, num)
-  // gameUi.makeMoveSuccess(event.target, store.game, num)
 
   // stop if game is over
   if (store.game.over === true) {
@@ -173,8 +171,8 @@ const onSelectBox = function (event) {
     return value !== ''
   }
   if (c.every(arrayFull)) {
-    console.log('return from arrayFull is,', c.every(arrayFull))
-    console.log('The game is a draw')
+    // console.log('return from arrayFull is,', c.every(arrayFull))
+    // console.log('The game is a draw')
     gameUi.weHaveADraw()
   }
 } // end of onSelectBox
