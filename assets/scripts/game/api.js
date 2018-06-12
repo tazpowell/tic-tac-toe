@@ -4,7 +4,7 @@ const store = require('../store')
 
 // CREATE GAME
 const createGame = function () {
-  console.log('token is', store.user.token)
+  // console.log('token is', store.user.token)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games',
@@ -17,7 +17,7 @@ const createGame = function () {
 
 // UPDATE GAME
 const updateGame = function () {
-  console.log('token is', store.user.token)
+  // console.log('token is', store.user.token)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
@@ -30,7 +30,7 @@ const updateGame = function () {
 
 // SHOW ALL GAMES
 const showAllGames = function () {
-  console.log('token is', store.user.token)
+  // console.log('token is', store.user.token)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games',
@@ -43,7 +43,7 @@ const showAllGames = function () {
 
 // SHOW ONE GAME
 const showOneGame = function (id) {
-  console.log('token is', store.user.token)
+  // console.log('token is', store.user.token)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games/' + id,

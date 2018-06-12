@@ -22,9 +22,9 @@ const signIn = function (data) {
 
 // CHANGE PW
 const changePW = function (data) {
-  console.log('data is', data)
-  console.log('store is', store)
-  console.log('token is', store.user.token)
+  // console.log('data is', data)
+  // console.log('store is', store)
+  // console.log('token is', store.user.token)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
@@ -37,7 +37,7 @@ const changePW = function (data) {
 
 // SIGN OUT
 const signOut = function () {
-  console.log('token is', store.user.token)
+  // console.log('token is', store.user.token)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',

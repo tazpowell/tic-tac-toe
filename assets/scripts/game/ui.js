@@ -14,12 +14,12 @@ const clearBoard = function () {
   $('#player_o').addClass('hide')
   $('#player_x').removeClass('hide')
   $('#game-win-msg').html('')
-  console.log('visual game board has been reset')
+  // console.log('visual game board has been reset')
 }
 
 // POPULATE game board with retrieved game data
 const populateBoard = function (data) {
-  console.log('data is', data)
+  // console.log('data is', data)
   clearBoard()
   const info = data.game.cells
   for (let i = 0; i < info.length; i++) {
@@ -66,9 +66,9 @@ const createTable = function (json) {
 // GAME server
 // CREATE success
 const createSuccess = function (createResponse) {
-  console.log('createResponse is ', createResponse)
+  // console.log('createResponse is ', createResponse)
   store.game = createResponse.game
-  console.log('new game successfully created')
+  // console.log('new game successfully created')
   $('#current-game-display').html(store.game.id)
   $('#game-info-msg').html('New game has started')
   if ($('#game-info-msg').hasClass('hide')) {
@@ -86,49 +86,49 @@ const createSuccess = function (createResponse) {
 }
 
 // CREATE error
-const createError = function (error) {
-  console.log('createError is ', error)
-  console.log('Failed to create new game')
+const createError = function () {
+  // console.log('createError is ', error)
+  // console.log('Failed to create new game')
 }
 
 // UPDATE success
 const updateSuccess = function (updateResponse) {
-  console.log('updateResponse is ', updateResponse)
+  // console.log('updateResponse is ', updateResponse)
   store.game = updateResponse.game
-  console.log('game successfully updated')
-  console.log('store.game is ', store.game)
+  // console.log('game successfully updated')
+  // console.log('store.game is ', store.game)
 }
 
 // UPDATE error
-const updateError = function (error) {
-  console.log('updateError is ', error)
-  console.log('Failed to update game')
+const updateError = function () {
+  // console.log('updateError is ', error)
+  // console.log('Failed to update game')
 }
 
 // SHOW ALL success
 const showAllSuccess = function (showAllResponse) {
-  console.log('showAllResponse is ', showAllResponse)
+  // console.log('showAllResponse is ', showAllResponse)
   store.list = showAllResponse.games
-  console.log('game data retrieved')
-  console.log('store.list is ', store.list)
+  // console.log('game data retrieved')
+  // console.log('store.list is ', store.list)
   // $('#game-list').toggleClass('hide')
   $('#game-table-body').html(createTable(showAllResponse.games))
   $('#modalGameList').modal('toggle')
 }
 
 // SHOW ALL error
-const showAllError = function (error) {
-  console.log('showAllError is ', error)
-  console.log('Failed to retrieve game data')
+const showAllError = function () {
+  // console.log('showAllError is ', error)
+  // console.log('Failed to retrieve game data')
 }
 
 // SHOW ONE success
 const showOneSuccess = function (showOneResponse) {
-  console.log('showOneResponse is ', showOneResponse)
-  console.log('game data retrieved')
+  // console.log('showOneResponse is ', showOneResponse)
+  // console.log('game data retrieved')
   // $('#game-by-id-form input[type=text]').val('')
   store.show = showOneResponse
-  console.log('store.show is ', store.show)
+  // console.log('store.show is ', store.show)
   populateBoard(store.show)
   $('#current-game-display').html(store.show.game.id)
   store.game = store.show
@@ -139,9 +139,9 @@ const showOneSuccess = function (showOneResponse) {
 }
 
 // SHOW ONE error
-const showOneError = function (error) {
-  console.log('showOneError is ', error)
-  console.log('Failed to retrieve game data')
+const showOneError = function () {
+  // console.log('showOneError is ', error)
+  // console.log('Failed to retrieve game data')
 }
 
 // display message to sign in
@@ -173,7 +173,7 @@ const makeMoveSuccess = function (box, game, num) {
     }
   }
   store.update = update
-  console.log('update is ', update)
+  // console.log('update is ', update)
   // console.log('box is ', box)
   // console.log('game is ', game)
   // console.log('num is ', num)
@@ -184,7 +184,7 @@ const makeMoveSuccess = function (box, game, num) {
 }
 
 const weHaveAWinner = function (value) {
-  console.log('value is ', value)
+  // console.log('value is ', value)
   $('#game-win-msg').html('Player ' + value + ' wins!')
   // $('.box').css('background-color', '#565656')
   store.game.over = true
@@ -192,7 +192,7 @@ const weHaveAWinner = function (value) {
   gameApi.updateGame()
     .then(updateSuccess)
     .catch(updateError)
-  console.log('store is ', store)
+  // console.log('store is ', store)
   $('#game-over-msg').toggleClass('hide')
   $('#game-info-msg').toggleClass('hide')
 }

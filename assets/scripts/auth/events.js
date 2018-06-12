@@ -30,9 +30,9 @@ const onSignUp = function (event) {
 // on Sign In
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('the sign in form was submitted')
+  // console.log('the sign in form was submitted')
   const data = getFormFields(event.target)
-  console.log('data is', data)
+  // console.log('data is', data)
   // api
   authApi.signIn(data)
     .then(authUi.signInSuccess)
@@ -42,9 +42,9 @@ const onSignIn = function (event) {
 // on Change PW
 const onChangePW = function (event) {
   event.preventDefault()
-  console.log('the pw change form was submitted')
+  // console.log('the pw change form was submitted')
   const data = getFormFields(event.target)
-  console.log('onChangePW data is', data)
+  // console.log('onChangePW data is', data)
   // api
   authApi.changePW(data)
     .then(authUi.changePWSuccess)
@@ -54,7 +54,7 @@ const onChangePW = function (event) {
 // SIGN OUT
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('sign out button was clicked')
+  // console.log('sign out button was clicked')
   // api
   authApi.signOut()
     .then(authUi.signOutSuccess)

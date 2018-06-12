@@ -11,7 +11,7 @@ const onShowStore = function () {
 
 // CREATE GAME on server
 const onCreateGame = function (event) {
-  console.log('create a new game was clicked')
+  // console.log('create a new game was clicked')
   // api
   gameApi.createGame()
     .then(gameUi.createSuccess)
@@ -20,7 +20,7 @@ const onCreateGame = function (event) {
 
 // SHOW ALL GAMES from server
 const onShowAllGames = function (event) {
-  console.log('show all games was clicked')
+  // console.log('show all games was clicked')
   gameApi.showAllGames()
     .then(gameUi.showAllSuccess)
     .catch(gameUi.showAllError)
@@ -29,14 +29,14 @@ const onShowAllGames = function (event) {
 // SHOW ONE GAME from game list
 const onShowClickedGame = function (event) {
   $('#modalGameList').modal('toggle')
-  console.log('show clicked game was clicked')
+  // console.log('show clicked game was clicked')
   // console.log('what is ', event.target.parent.next)
   const parent = $(event.target).parent()
-  console.log('parent is, ', parent)
+  // console.log('parent is, ', parent)
   const element = parent.next()
-  console.log('element is ', element)
+  // console.log('element is ', element)
   const gameID = element[0].textContent
-  console.log('gameID is ', gameID)
+  // console.log('gameID is ', gameID)
   gameApi.showOneGame(gameID)
     .then(gameUi.showOneSuccess)
     .catch(gameUi.showOneError)
@@ -45,9 +45,9 @@ const onShowClickedGame = function (event) {
 // SHOW ONE GAME from server
 const onShowOneGame = function (event) {
   event.preventDefault()
-  console.log('show one game was clicked')
+  // console.log('show one game was clicked')
   const data = getFormFields(event.target)
-  console.log('data.id is ', data.id)
+  // console.log('data.id is ', data.id)
   gameApi.showOneGame(data.id)
     .then(gameUi.showOneSuccess)
     .catch(gameUi.showOneError)
@@ -88,18 +88,18 @@ const onSelectBox = function (event) {
 
   // store the box number that is clicked
   const num = event.target.getAttribute('data-id')
-  console.log('num is ', num)
+  // console.log('num is ', num)
 
   // check if number has been used
   if (store.game.cells[num] !== '') {
-    console.log('number is already used, pick again')
+    // console.log('number is already used, pick again')
     $('#game-info-msg').html('Please pick a different box')
     return
   }
 
   // re-hide pick diff box msg
   if ($('#game-info-msg').html('Please pick a different box')) {
-    console.log('game info msg is true')
+    // console.log('game info msg is true')
     $('#game-info-msg').html('')
   }
 
@@ -112,7 +112,7 @@ const onSelectBox = function (event) {
   // console.log('currentGame is now ', store.game.cells)
   gameUi.makeMoveSuccess(event.target, store.game, num)
   // store.game.cells = currentGame
-  console.log('store is ', store)
+  // console.log('store is ', store)
 
   // win conditions
   const c = store.game.cells
@@ -120,33 +120,33 @@ const onSelectBox = function (event) {
 
   // win in rows
   if (c[0] !== '' && c[0] === c[1] && c[0] === c[2]) {
-    console.log('Player', c[0], 'wins!')
+    // console.log('Player', c[0], 'wins!')
     gameUi.weHaveAWinner(c[0])
   } else if (c[3] !== '' && c[3] === c[4] && c[3] === c[5]) {
-    console.log('Player ', c[3], 'wins!')
+    // console.log('Player ', c[3], 'wins!')
     gameUi.weHaveAWinner(c[3])
   } else if (c[6] !== '' && c[6] === c[7] && c[6] === c[8]) {
-    console.log('Player ', c[6], 'wins!')
+    // console.log('Player ', c[6], 'wins!')
     gameUi.weHaveAWinner(c[6])
   }
   // win in columns
   if (c[0] !== '' && c[0] === c[3] && c[0] === c[6]) {
-    console.log('Player', c[0], 'wins!')
+    // console.log('Player', c[0], 'wins!')
     gameUi.weHaveAWinner(c[0])
   } else if (c[1] !== '' && c[1] === c[4] && c[1] === c[7]) {
-    console.log('Player ', c[1], 'wins!')
+    // console.log('Player ', c[1], 'wins!')
     gameUi.weHaveAWinner(c[3])
   } else if (c[2] !== '' && c[2] === c[5] && c[2] === c[8]) {
-    console.log('Player ', c[2], 'wins!')
+    // console.log('Player ', c[2], 'wins!')
     gameUi.weHaveAWinner(c[2])
   }
 
   // win in diagonals
   if (c[0] !== '' && c[0] === c[4] && c[0] === c[8]) {
-    console.log('Player', c[0], 'wins!')
+    // console.log('Player', c[0], 'wins!')
     gameUi.weHaveAWinner(c[0])
   } else if (c[2] !== '' && c[2] === c[4] && c[2] === c[6]) {
-    console.log('Player ', c[2], 'wins!')
+    // console.log('Player ', c[2], 'wins!')
     gameUi.weHaveAWinner(c[2])
   }
 
@@ -155,7 +155,7 @@ const onSelectBox = function (event) {
     return value !== ''
   }
   if (c.every(arrayFull)) {
-    console.log('The game is a draw')
+    // console.log('The game is a draw')
     gameUi.weHaveADraw()
   }
 } // end of onSelectBox
