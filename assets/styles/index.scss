@@ -6,6 +6,8 @@ $teal: #35c9ab;
 $light-teal: #c4f1e8;
 $light-gray: #d2dedc;
 $orange: #f88a27;
+$error: #de3a0d;
+$success: #005f19;
 $white: #fff;
 $black: #333;
 
@@ -83,6 +85,15 @@ p {
   width: 15vw;
 }
 
+.error {
+  color: $error;
+}
+
+.form-control {
+  color: $black;
+  font-weight: 500;
+}
+
 .form-area {
   border: 1px solid $white;
   border-top-color: transparent;
@@ -130,6 +141,9 @@ p {
   }
 }
 
+.success {
+  color: $success;
+}
 // .tab-content {
 //   overflow: visible;
 // }
