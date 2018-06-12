@@ -256,7 +256,7 @@ p {
   }
 
   #main-content {
-    height: 75vh;
+    height: 70vh;
     padding: 0 20px;
     width: 100vw;
   }
@@ -275,6 +275,12 @@ p {
   #gameStatus {
     height: 22vw;
     margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #main-content {
+    height: 90vh;
   }
 }
 
