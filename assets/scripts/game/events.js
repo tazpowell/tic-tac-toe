@@ -80,9 +80,9 @@ const onSelectBox = function (event) {
   // stop if game is over
   if (store.game.over === true) {
     $('#game-info-msg').html('Start a new game to play!')
-    if ($('#game-info-msg').hasClass('hide')) {
-      $('#game-info-msg').toggleClass('hide')
-    }
+    // if ($('#game-info-msg').hasClass('hide')) {
+    //   $('#game-info-msg').toggleClass('hide')
+    // }
     return
   }
 
