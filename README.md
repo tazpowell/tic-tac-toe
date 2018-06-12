@@ -8,7 +8,7 @@ HTML, SCSS, JS, JQuery, and Ajax
 - Used suggested schedule as a guide for sectioning out the project (planning > game engine, authentication, game ui, game api)
 - Created wireframes and user stories
 
-Game Engine
+#### Game Engine
 - Wrote pseudo code to define each step
 - Used console.log to confirm new lines of code work as indended
 - Set up game logic to produce code in format that matches API requirements (but not connected to API yet)
@@ -17,17 +17,17 @@ Game Engine
 - Update visual game board based on input
 - Have game logic working locally
 
-User Authentication
+#### User Authentication
 - Checked API with CURL scripts, then created functions to send data to API
 - Created forms to input data and send to API
 - Create success and fail conditions for each API action
 
-Game UI
+#### Game UI
 - Update x/o from text to image file
 - Hide certain modules/forms based on sign-in status
 - Add CSS to refine visual layout
 
-Game API
+#### Game API
 - Checked API with CURL scripts, then created functions to send data to API
 - Connect game play to API (update each move to server)
 - Create function to generate table to show list of games associated with a user
@@ -47,10 +47,10 @@ Game API
 - UI animations
 
 ## Wireframes & User stories
-Wireframes: <link>
-User stories:
+- [Wireframes] (https://drive.google.com/file/d/1gER1tb7slxYF9eQXwuovR7W7cz3UFb8t/view?usp=sharing)
+- User stories:
 As a user, I want to:
-      easily start a new game
-      play with another person
-      save a record of the games I've played
-      play against the computer as an opponent
+      - easily start a new game
+      - play with another person
+      - save a record of the games I've played
+      - play against the computer as an opponent
