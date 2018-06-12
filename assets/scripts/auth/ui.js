@@ -1,7 +1,7 @@
 'use strict'
 const store = require('../store')
 const gameUi = require('../game/ui.js')
-const gameEvents = require('../game/events.js')
+// const gameEvents = require('../game/events.js')
 const authApi = require('./api.js')
 
 // SIGN UP error
@@ -9,6 +9,11 @@ const signUpError = function (error) {
   console.log('signUpError is ', error)
   console.log('sign up failed')
   $('#sign-up-msg').html('Sign up unsuccessful ').css('color', 'red')
+}
+
+// PASSWORD do not match
+const pwNotMatching = function () {
+  $('#sign-up-msg').html('Passwords do not match').css('color', 'red')
 }
 
 // SIGN IN success
@@ -88,6 +93,7 @@ const signOutError = function (error) {
 
 module.exports = {
   signUpSuccess,
+  pwNotMatching,
   signUpError,
   signInSuccess,
   signInError,
