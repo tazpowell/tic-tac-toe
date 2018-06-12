@@ -38,7 +38,7 @@ const signInSuccess = function (signInResponse) {
   // console.log('store is ', store)
   // $('#sign-in-form input[type=email]').val('')
   // $('#sign-in-form input[type=password]').val('')
-  $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', 'white')
+  $('#sign-in-msg').html('Signed in as ' + signInResponse.user.email).css('color', 'black')
   $('#sign-in-user-display').html(signInResponse.user.email)
   $('#game-win-msg').html('')
   $('.on-sign-in').toggleClass('hide')
@@ -53,7 +53,7 @@ const signUpSuccess = function (signUpResponse) {
   store.credentials.email = signUpResponse.user.email
   // $('#sign-up-form input[type=email]').val('')
   // $('#sign-up-form input[type=password]').val('')
-  $('#sign-up-msg').html('Signed up as ' + signUpResponse.user.email).css('color', 'white')
+  // $('#sign-up-msg').html('Signed up as ' + signUpResponse.user.email).css('color', 'black')
   $('#sign-out-msg').html('')
   // on Sign In after a Sign Up
   const onSignInAfterUp = function () {
@@ -78,7 +78,7 @@ const signInError = function () {
 
 // Change PW success
 const changePWSuccess = function () {
-  $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', 'white')
+  $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', 'black').fadeOut(2000)
   // $('#change-pw-form input[type=password]').val('')
   clearForms()
 }
