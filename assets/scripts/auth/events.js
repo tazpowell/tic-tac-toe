@@ -8,19 +8,19 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 // on Sign Up
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('the sign up form was submitted')
+  // console.log('the sign up form was submitted')
   const data = getFormFields(event.target)
-  console.log('data is', data)
+  // console.log('data is', data)
   // check if passwords matches
   if (data.credentials.password === data.credentials.password_confirmation) {
   } else {
     authUi.pwNotMatching()
-    console.log('passwords do not match')
+    // console.log('passwords do not match')
     return
   }
   store.credentials = {}
   store.credentials.password = data.credentials.password
-  console.log('store.user at onSignUP is ', store.user)
+  // console.log('store.user at onSignUP is ', store.user)
   // api
   authApi.signUp(data)
     .then(authUi.signUpSuccess)

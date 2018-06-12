@@ -97,6 +97,12 @@ const onSelectBox = function (event) {
     return
   }
 
+  // re-hide pick diff box msg
+  if ($('#game-info-msg').html('Please pick a different box')) {
+    console.log('game info msg is true')
+    $('#game-info-msg').html('')
+  }
+
   // push x or o to array
   if ($('#player_o').hasClass('hide')) {
     store.game.cells[num] = 'x'

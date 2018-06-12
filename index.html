@@ -17,10 +17,6 @@
       <!-- title and status  -->
       <div id="main-content" class="col-sm-12 col-md-4" >
         <h1>Tic Tac Toe</h1>
-        <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-line" data-toggle="modal" data-target="#modalGameList">
-          Launch demo modal
-        </button> -->
 
         <div id="welcome-content" >
           <h4>Welcome!</h4>
@@ -54,7 +50,6 @@
           <div id="tabSignIn" class="tab-pane fade in active">
             <!-- SIGN IN -->
             <div class="form-area">
-              <!-- <h4>Sign In</h4> -->
               <form id="sign-in-form">
                 <div class="form-group">
                   <label for="email-signin">Email:</label>
@@ -73,7 +68,6 @@
           <div id="tabSignUp" class="tab-pane fade">
             <!-- SIGN UP -->
             <div class="form-area">
-              <!-- <h4>Sign Up</h4> -->
               <form id="sign-up-form">
                 <div class="form-group">
                   <label for="email-signup">Email:</label>
@@ -109,12 +103,6 @@
           </form>
         </div><!-- end of form-area -->
 
-        <!-- <hr>
-        <h2>Current player is:
-          <span id="player_x">Player X</span>
-          <span id="player_o" class="hide" >Player O</span>
-        </h2> -->
-
         <!-- tabs sign out change pw  -->
         <ul id="nav-sign-out-pw" class="nav nav-tabs on-sign-in hide">
           <li class="active"><a data-toggle="tab" href="#tabSignOut">Sign Out</a></li>
@@ -125,8 +113,6 @@
           <div id="tabSignOut" class="tab-pane fade in active">
             <!-- SIGN OUT -->
             <div class="form-area">
-              <!-- <h4>Sign Out</h4> -->
-
               <button id="sign-out-btn" type="button" class="btn-line">Sign Out</button>
             </div><!-- end of form-area -->
           </div> <!-- end tabSignOut -->
@@ -134,7 +120,6 @@
           <div id="tabChangePW" class="tab-pane fade">
             <!-- CHANGE PW -->
             <div class="form-area">
-              <!-- <h4>Change Password</h4> -->
               <form id="change-pw-form">
                 <div class="form-group">
                   <label for="old-pw-change">Old password:</label>
@@ -173,13 +158,7 @@
 
         <div id="gameBoard" class="playable" >
           <div class="row">
-            <div id="box0" data-id="0" class="col-xs-4 box">
-              <!-- <img src='assets/images/x.png' alt=''> -->
-              <!-- <svg viewbox="0 0 400 400">
-                  <line x1="0" y1="0" x2="400" y2="400" style="stroke:#35c9ab; stroke-width:5" />
-                  <line x1="400" y1="0" x2="0" y2="400" style="stroke:#35c9ab; stroke-width:5" />
-              </svg> -->
-            </div>
+            <div id="box0" data-id="0" class="col-xs-4 box"></div>
             <div id="box1" data-id="1" class="col-xs-4 box"></div>
             <div id="box2" data-id="2" class="col-xs-4 box"></div>
           </div><!-- end of row -->
@@ -214,7 +193,6 @@
       </div><!-- end of game-area-->
 
 
-
       <!-- Modal -->
       <div class="modal fade" id="modalGameList" tabindex="-1" role="dialog" aria-labelledby="modalGameListTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -240,11 +218,8 @@
                 <tbody id='game-table-body' >
                 </tbody>
               </table>
-            </div>
-            <!-- <div class="modal-footer"> -->
-              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button> -->
-            <!-- </div> -->
+            </div> <!-- end game-list -->
+
           </div>
         </div>
       </div> <!-- end Modal -->
