@@ -74,15 +74,18 @@ const onSelectBox = function (event) {
   if (store.hasOwnProperty('game')) {
   } else {
     $('#game-info-msg').html('Start a new game to play')
+    if ($('#game-info-msg').hasClass('hide')) {
+      $('#game-info-msg').toggleClass('hide')
+    }
     return
   }
 
   // stop if game is over
   if (store.game.over === true) {
     $('#game-info-msg').html('Start a new game to play!')
-    // if ($('#game-info-msg').hasClass('hide')) {
-    //   $('#game-info-msg').toggleClass('hide')
-    // }
+    if ($('#game-info-msg').hasClass('hide')) {
+      $('#game-info-msg').toggleClass('hide')
+    }
     return
   }
 
@@ -94,6 +97,9 @@ const onSelectBox = function (event) {
   if (store.game.cells[num] !== '') {
     // console.log('number is already used, pick again')
     $('#game-info-msg').html('Please pick a different box')
+    if ($('#game-info-msg').hasClass('hide')) {
+      $('#game-info-msg').toggleClass('hide')
+    }
     return
   }
 
@@ -109,45 +115,57 @@ const onSelectBox = function (event) {
   } else {
     store.game.cells[num] = 'o'
   }
-  // console.log('currentGame is now ', store.game.cells)
-  gameUi.makeMoveSuccess(event.target, store.game, num)
-  // store.game.cells = currentGame
-  // console.log('store is ', store)
+
+  // gameUi.makeMoveSuccess(event.target, store.game, num)
 
   // win conditions
   const c = store.game.cells
-  // console.log('c[0] is ', c[0])
+  console.log('c is ', c)
+  console.log('num is ', num)
 
-  // win in rows
-  if (c[0] !== '' && c[0] === c[1] && c[0] === c[2]) {
-    // console.log('Player', c[0], 'wins!')
-    gameUi.weHaveAWinner(c[0])
-  } else if (c[3] !== '' && c[3] === c[4] && c[3] === c[5]) {
-    // console.log('Player ', c[3], 'wins!')
-    gameUi.weHaveAWinner(c[3])
-  } else if (c[6] !== '' && c[6] === c[7] && c[6] === c[8]) {
-    // console.log('Player ', c[6], 'wins!')
-    gameUi.weHaveAWinner(c[6])
-  }
-  // win in columns
-  if (c[0] !== '' && c[0] === c[3] && c[0] === c[6]) {
-    // console.log('Player', c[0], 'wins!')
-    gameUi.weHaveAWinner(c[0])
-  } else if (c[1] !== '' && c[1] === c[4] && c[1] === c[7]) {
-    // console.log('Player ', c[1], 'wins!')
-    gameUi.weHaveAWinner(c[3])
-  } else if (c[2] !== '' && c[2] === c[5] && c[2] === c[8]) {
-    // console.log('Player ', c[2], 'wins!')
-    gameUi.weHaveAWinner(c[2])
+  const winCheck = function (c) {
+    // win in rows
+    if (c[0] !== '' && c[0] === c[1] && c[0] === c[2]) {
+      // console.log('Player', c[0], 'wins!')
+      gameUi.weHaveAWinner(c[0])
+    } else if (c[3] !== '' && c[3] === c[4] && c[3] === c[5]) {
+      // console.log('Player ', c[3], 'wins!')
+      gameUi.weHaveAWinner(c[3])
+    } else if (c[6] !== '' && c[6] === c[7] && c[6] === c[8]) {
+      // console.log('Player ', c[6], 'wins!')
+      gameUi.weHaveAWinner(c[6])
+    }
+    // win in columns
+    if (c[0] !== '' && c[0] === c[3] && c[0] === c[6]) {
+      console.log('Player', c[0], 'wins!')
+      gameUi.weHaveAWinner(c[0])
+    } else if (c[1] !== '' && c[1] === c[4] && c[1] === c[7]) {
+      console.log('Player ', c[1], 'wins!')
+      gameUi.weHaveAWinner(c[1])
+    } else if (c[2] !== '' && c[2] === c[5] && c[2] === c[8]) {
+      console.log('Player ', c[2], 'wins!')
+      gameUi.weHaveAWinner(c[2])
+    }
+
+    // win in diagonals
+    if (c[0] !== '' && c[0] === c[4] && c[0] === c[8]) {
+      // console.log('Player', c[0], 'wins!')
+      gameUi.weHaveAWinner(c[0])
+    } else if (c[2] !== '' && c[2] === c[4] && c[2] === c[6]) {
+      // console.log('Player ', c[2], 'wins!')
+      gameUi.weHaveAWinner(c[2])
+    }
   }
 
-  // win in diagonals
-  if (c[0] !== '' && c[0] === c[4] && c[0] === c[8]) {
-    // console.log('Player', c[0], 'wins!')
-    gameUi.weHaveAWinner(c[0])
-  } else if (c[2] !== '' && c[2] === c[4] && c[2] === c[6]) {
-    // console.log('Player ', c[2], 'wins!')
-    gameUi.weHaveAWinner(c[2])
+  winCheck(c)
+  console.log('ran winCheck with num', num)
+  gameUi.makeMoveSuccess(event.target, store.game, num)
+  // gameUi.makeMoveSuccessNoWin(event.target, store.game, num)
+  // gameUi.makeMoveSuccess(event.target, store.game, num)
+
+  // stop if game is over
+  if (store.game.over === true) {
+    return
   }
 
   // draw conditions
@@ -155,7 +173,8 @@ const onSelectBox = function (event) {
     return value !== ''
   }
   if (c.every(arrayFull)) {
-    // console.log('The game is a draw')
+    console.log('return from arrayFull is,', c.every(arrayFull))
+    console.log('The game is a draw')
     gameUi.weHaveADraw()
   }
 } // end of onSelectBox

@@ -96,7 +96,7 @@ const updateSuccess = function (updateResponse) {
   // console.log('updateResponse is ', updateResponse)
   store.game = updateResponse.game
   // console.log('game successfully updated')
-  // console.log('store.game is ', store.game)
+  console.log('store.game after updateSuccess is ', store.game)
 }
 
 // UPDATE error
@@ -149,9 +149,7 @@ const mustSignIn = function () {
   $('#game-win-msg').html('Please sign in to play')
 }
 
-// GAME PLAY
 // make a move
-// game = store.game
 const makeMoveSuccess = function (box, game, num) {
   // $('#box' + num).html(game.cells[num])
   $('#player_x').toggleClass('hide')
@@ -162,6 +160,7 @@ const makeMoveSuccess = function (box, game, num) {
   } else {
     $('#box' + num).prepend($('<img>', {src: config.imgUrl + '/assets/images/O.png', alt: ''}))
   }
+
   // store into store.update
   const update = {
     game: {
@@ -173,7 +172,7 @@ const makeMoveSuccess = function (box, game, num) {
     }
   }
   store.update = update
-  // console.log('update is ', update)
+  console.log('update is ', update)
   // console.log('box is ', box)
   // console.log('game is ', game)
   // console.log('num is ', num)
@@ -186,15 +185,16 @@ const makeMoveSuccess = function (box, game, num) {
 const weHaveAWinner = function (value) {
   // console.log('value is ', value)
   $('#game-win-msg').html('Player ' + value + ' wins!')
-  // $('.box').css('background-color', '#565656')
   store.game.over = true
+  console.log('store.game.over is', store.game.over)
   store.update.game.over = true
-  gameApi.updateGame()
-    .then(updateSuccess)
-    .catch(updateError)
-  // console.log('store is ', store)
+  // gameApi.updateGame()
+  //   .then(updateSuccess)
+  //   .catch(updateError)
+  console.log('store is ', store)
   $('#game-over-msg').toggleClass('hide')
   $('#game-info-msg').toggleClass('hide')
+  console.log('end of weHaveAWinner')
 }
 
 const weHaveADraw = function () {
@@ -210,6 +210,8 @@ const weHaveADraw = function () {
 
 module.exports = {
   makeMoveSuccess,
+  // makeMoveSuccessNoWin,
+  // makeMoveSuccessWin,
   weHaveAWinner,
   clearBoard,
   populateBoard,
