@@ -12,11 +12,18 @@ const clearForms = function () {
   $('#change-pw-form input[type=password]').val('')
 }
 
+const clearMessages = function () {
+  $('#change-pw-msg').html('')
+  $('#sign-out-msg').html('')
+  $('#sign-up-msg').html('')
+  $('#sign-in-msg').html('')
+}
+
 // SIGN UP error
 const signUpError = function () {
   // console.log('signUpError is ', error)
   // console.log('sign up failed')
-  $('#sign-up-msg').html('Sign up unsuccessful ').css('color', 'red')
+  $('#sign-up-msg').html('Sign up unsuccessful').css('color', 'red')
   // $('#sign-up-form input[type=email]').val('')
   // $('#sign-up-form input[type=password]').val('')
   clearForms()
@@ -27,6 +34,12 @@ const pwNotMatching = function () {
   $('#sign-up-msg').html('Passwords do not match').css('color', 'red')
   // $('#sign-up-form input[type=email]').val('')
   // $('#sign-up-form input[type=password]').val('')
+  clearForms()
+}
+
+// PASSWORD do not match
+const pwMatching = function () {
+  $('#change-pw-msg').html('New password must be different than old').css('color', 'red')
   clearForms()
 }
 
@@ -78,7 +91,7 @@ const signInError = function () {
 
 // Change PW success
 const changePWSuccess = function () {
-  $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', 'black').fadeOut(2000)
+  $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', 'black')
   // $('#change-pw-form input[type=password]').val('')
   clearForms()
 }
@@ -108,6 +121,7 @@ const signOutSuccess = function () {
   // $('#sign-up-form input[type=email]').val('')
   // $('#sign-up-form input[type=password]').val('')
   clearForms()
+  clearMessages()
 }
 
 // SIGN OUT error
@@ -120,6 +134,7 @@ const signOutError = function () {
 module.exports = {
   signUpSuccess,
   pwNotMatching,
+  pwMatching,
   signUpError,
   signInSuccess,
   signInError,

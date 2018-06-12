@@ -44,7 +44,12 @@ const onChangePW = function (event) {
   event.preventDefault()
   // console.log('the pw change form was submitted')
   const data = getFormFields(event.target)
-  // console.log('onChangePW data is', data)
+  console.log('onChangePW data is', data)
+  if (data.passwords.old !== data.passwords.new) {
+  } else {
+    authUi.pwMatching()
+    return
+  }
   // api
   authApi.changePW(data)
     .then(authUi.changePWSuccess)
