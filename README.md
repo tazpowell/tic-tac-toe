@@ -47,7 +47,7 @@ HTML, SCSS, JS, JQuery, and Ajax
 - UI animations
 
 ## Wireframes & User stories
-- [Wireframes] (https://drive.google.com/file/d/1gER1tb7slxYF9eQXwuovR7W7cz3UFb8t/view?usp=sharing)
+- [Wireframes](https://drive.google.com/file/d/1gER1tb7slxYF9eQXwuovR7W7cz3UFb8t/view?usp=sharing)
 - User stories:
 As a user, I want to:
       - easily start a new game
