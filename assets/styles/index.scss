@@ -273,6 +273,25 @@ p {
   }
 
   #gameStatus {
-    height: 20vw;
+    height: 22vw;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  #gameStatus {
+    font-size: 14px;
+  }
+
+  #main-content {
+    height: 100vh;
   }
 }
