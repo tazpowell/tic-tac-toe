@@ -86,6 +86,10 @@ const onSelectBox = function (event) {
     if ($('#game-info-msg').hasClass('hide')) {
       $('#game-info-msg').toggleClass('hide')
     }
+    if ($('#current-player').hasClass('hide')) {
+    } else {
+      $('#current-player').toggleClass('hide')
+    }
     return
   }
 

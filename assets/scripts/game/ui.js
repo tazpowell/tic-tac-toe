@@ -72,6 +72,9 @@ const createSuccess = function (createResponse) {
   // console.log('new game successfully created')
   $('#current-game-display').html(store.game.id)
   $('#game-info-msg').html('New game has started')
+  if ($('#current-player').hasClass('hide')) {
+    $('#current-player').toggleClass('hide')
+  }
   if ($('#game-info-msg').hasClass('hide')) {
     $('#game-info-msg').toggleClass('hide')
   }

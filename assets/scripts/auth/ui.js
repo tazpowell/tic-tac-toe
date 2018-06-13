@@ -122,7 +122,7 @@ const signOutSuccess = function () {
   $('#sign-in-msg').html('')
   $('#sign-up-msg').html('')
   $('.on-sign-in').toggleClass('hide')
-  $('#current-game-display').html('')
+  $('#current-game-display').html('N/A')
   // if ($('game-list').hasClass('hide')) {
   // } else {
   //   $('game-list').toggleClass('hide')
