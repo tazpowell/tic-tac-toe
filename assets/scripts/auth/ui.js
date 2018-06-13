@@ -21,6 +21,7 @@ const clearMessages = function () {
 
 // SIGN UP error
 const signUpError = function () {
+  clearMessages()
   // console.log('signUpError is ', error)
   // console.log('sign up failed')
   $('#sign-up-msg').html('Sign up unsuccessful').css('color', '#DE3A0D')
@@ -31,6 +32,7 @@ const signUpError = function () {
 
 // PASSWORD do not match
 const pwNotMatching = function () {
+  clearMessages()
   $('#sign-up-msg').html('Passwords do not match').css('color', '#DE3A0D')
   // $('#sign-up-form input[type=email]').val('')
   // $('#sign-up-form input[type=password]').val('')
@@ -39,12 +41,14 @@ const pwNotMatching = function () {
 
 // PASSWORD do not match
 const pwMatching = function () {
+  clearMessages()
   $('#change-pw-msg').html('New password must be different than old').css('color', '#DE3A0D')
   clearForms()
 }
 
 // SIGN IN success
 const signInSuccess = function (signInResponse) {
+  clearMessages()
   // console.log('signInResponse is ', signInResponse)
   store.user = signInResponse.user
   // console.log('store.user is ', store.user)
@@ -61,6 +65,7 @@ const signInSuccess = function (signInResponse) {
 
 // SIGN UP success
 const signUpSuccess = function (signUpResponse) {
+  clearMessages()
   // console.log('signUpResponse is ', signUpResponse)
   // console.log('sign up success')
   store.credentials.email = signUpResponse.user.email
@@ -82,6 +87,7 @@ const signUpSuccess = function (signUpResponse) {
 
 // SIGN IN error
 const signInError = function () {
+  clearMessages()
   // console.log('signInError is ', error)
   $('#sign-in-msg').html('Sign in unsuccessful ').css('color', '#DE3A0D')
   // $('#sign-in-form input[type=email]').val('')
@@ -91,12 +97,14 @@ const signInError = function () {
 
 // Change PW success
 const changePWSuccess = function () {
+  clearMessages()
   $('#change-pw-msg').html('Password was successfully updated for: ' + store.user.email).css('color', '#005f19')
   // $('#change-pw-form input[type=password]').val('')
   clearForms()
 }
 // Change PW error
 const changePWError = function () {
+  clearMessages()
   // console.log('changePWError is ', error)
   $('#change-pw-msg').html('Password change failed').css('color', '#DE3A0D')
   // $('#change-pw-form input[type=password]').val('')
@@ -105,6 +113,7 @@ const changePWError = function () {
 
 // SIGN OUT success
 const signOutSuccess = function () {
+  clearMessages()
   // console.log('sign out success ')
   $('#sign-out-msg').html('Successfully signed out as: ' + store.user.email).css('color', '#005f19')
   delete store.user
@@ -113,6 +122,7 @@ const signOutSuccess = function () {
   $('#sign-in-msg').html('')
   $('#sign-up-msg').html('')
   $('.on-sign-in').toggleClass('hide')
+  $('#current-game-display').html('')
   // if ($('game-list').hasClass('hide')) {
   // } else {
   //   $('game-list').toggleClass('hide')
@@ -126,6 +136,7 @@ const signOutSuccess = function () {
 
 // SIGN OUT error
 const signOutError = function () {
+  clearMessages()
   // console.log('signOutError is ', error)
   $('#sign-out-msg').html('Sign out failed').css('color', '#DE3A0D')
   clearForms()

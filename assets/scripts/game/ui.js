@@ -8,7 +8,7 @@ const config = require('../config.js')
 const clearBoard = function () {
   // $('.box').css('background-color', '$light-teal')
   for (let i = 0; i < 9; i++) {
-    $('#box' + i).html('')
+    $('#box' + i).html('').removeClass('winner')
   }
   $('#game-over-msg').addClass('hide')
   $('#player_o').addClass('hide')
@@ -24,6 +24,7 @@ const populateBoard = function (data) {
   const info = data.game.cells
   for (let i = 0; i < info.length; i++) {
     // $('#box' + i).html(info[i])
+    $('#box' + i).html('').removeClass('winner')
     if (info[i] === 'x') {
       $('#box' + i).prepend($('<img>', {src: config.imgUrl + '/assets/images/X.png', alt: ''}))
     } else if (info[i] === 'o') {
