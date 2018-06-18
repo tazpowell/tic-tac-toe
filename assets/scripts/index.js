@@ -24,6 +24,9 @@ $(() => {
   $('#game-by-id-form').on('submit', gameEvents.onShowOneGame)
   $('#game-table-body').on('click', 'button.clickable', gameEvents.onShowClickedGame)
 
+  // sign in as guest
+  $('#guest-btn').on('click', authEvents.onSignInGuest)
+
   // submit forms/button
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)

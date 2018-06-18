@@ -63,6 +63,19 @@ const signInSuccess = function (signInResponse) {
   clearForms()
 }
 
+// SIGN IN success as GUEST
+const signInSuccessGuest = function (signInGuestResponse) {
+  clearMessages()
+  store.user = signInGuestResponse.user
+  $('#sign-in-msg').html('Signed in as Guest').css('color', '#005f19')
+  $('#sign-in-user-display').html('Guest')
+  $('#game-win-msg').html('')
+  $('.on-sign-in').toggleClass('hide')
+  $('#tabChangePW').addClass('hide')
+  $('#liChangePW').addClass('hide')
+  $('#sign-out-msg').html('')
+}
+
 // SIGN UP success
 const signUpSuccess = function (signUpResponse) {
   clearMessages()
@@ -130,6 +143,8 @@ const signOutSuccess = function () {
   $('#game-info-msg').html('')
   // $('#sign-up-form input[type=email]').val('')
   // $('#sign-up-form input[type=password]').val('')
+  $('#tabChangePW').removeClass('hide')
+  $('#liChangePW').removeClass('hide')
   clearForms()
   clearMessages()
 }
@@ -152,5 +167,6 @@ module.exports = {
   changePWSuccess,
   changePWError,
   signOutSuccess,
-  signOutError
+  signOutError,
+  signInSuccessGuest
 }

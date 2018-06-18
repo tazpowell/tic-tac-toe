@@ -27,12 +27,28 @@ const onSignUp = function (event) {
     .catch(authUi.signUpError)
 }
 
+// on Sign In as guest
+const onSignInGuest = function (event) {
+  event.preventDefault()
+  console.log('sign in as guest was clicked')
+  const data = {
+    credentials: {
+      email: 'guest@taz.com',
+      password: 'guestpass'
+    }
+  }
+  console.log('data is ', data)
+  authApi.signIn(data)
+    .then(authUi.signInSuccessGuest)
+    .catch(authUi.signInError)
+}
+
 // on Sign In
 const onSignIn = function (event) {
   event.preventDefault()
   // console.log('the sign in form was submitted')
   const data = getFormFields(event.target)
-  // console.log('data is', data)
+  console.log('data is', data)
   // api
   authApi.signIn(data)
     .then(authUi.signInSuccess)
@@ -71,5 +87,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePW,
-  onSignOut
+  onSignOut,
+  onSignInGuest
 }
